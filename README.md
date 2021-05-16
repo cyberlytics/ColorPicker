@@ -18,7 +18,7 @@ Muss im Ordner `client` ausgeführt werden
 
 #### Start
 
-`npm run`
+`npm start`
 
 
 
