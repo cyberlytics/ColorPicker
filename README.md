@@ -50,6 +50,8 @@ https://www.mongodb.com/try/download/community
 
 Startet MongoDB mit der Datenbank in unserem Verzeichnis.
 
+Wahrscheinlich müsst ihr dann noch selbst eine Datenbank mit dem Namen `colorpicker` erstellen (mit Console oder MongoDB Compass)
+
 
 
 ## :mega: Allgemein
