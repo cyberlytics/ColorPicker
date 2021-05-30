@@ -7,9 +7,9 @@ import {
 } from "react-router-dom";
 
 //Components
-import Home from "./components/Home/home"
-import About from "./components/About/about"
-import Dashboard from "./components/Dashboard/dashboard"
+import Home from "./views/Home/home"
+import About from "./views/About/about"
+import Dashboard from "./views/Dashboard/dashboard"
 
 function App() {
   return (
