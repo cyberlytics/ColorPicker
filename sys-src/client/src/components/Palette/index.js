@@ -5,3 +5,25 @@
  *  -CommentRating
  *  -(opt. PopUpPalette)
  */
+
+
+import CommentRating from "../../components/CommentRating/index"
+import ColorField from "./ColorField/index"
+
+import "./palette.css"
+
+function Palette(props) {
+    console.log(props.avgRating)
+    return (
+    <div className="palette">
+        <div className="colorContainer">
+            <ColorField id={props.id} colors={props.colors}/>
+        </div>
+        <div className="infoContainer">
+            <CommentRating rating={props.avgRating}/>
+        </div>
+    </div>
+    );
+}
+
+export default Palette;
