@@ -1,5 +1,6 @@
 //Express
 const express = require('express');
+const cors = require('cors')
 const app = express();
 
 //Set up mongoose connection
@@ -19,6 +20,7 @@ let rating = require('./routes/ratingRoute')
 
 //Middleware
 app.use(express.json());
+app.use(cors());
 
 //App
 app.get('/', (req, res) => {
@@ -28,6 +30,6 @@ app.get('/', (req, res) => {
 app.use('/palette', palette)
 app.use('/rating', rating)
 
-app.listen(3000, function() {
-    console.log('listening on 3000')
+app.listen(5000, function() {
+    console.log('listening on 5000')
 })
