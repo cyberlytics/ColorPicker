@@ -11,6 +11,9 @@ import Home from "./views/Home/home"
 import About from "./views/About/about"
 import Dashboard from "./views/Dashboard/dashboard"
 
+//Views
+import ShowSchemes from "./views/ShowSchemes"
+
 function App() {
   return (
     <Router>
@@ -24,6 +27,9 @@ function App() {
           </li>
           <li>
             <Link to="/dashboard">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/schemes">Schemes</Link>
           </li>
         </ul>
 
@@ -45,6 +51,9 @@ function App() {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/schemes">
+            <ShowSchemes />
           </Route>
         </Switch>
       </div>
