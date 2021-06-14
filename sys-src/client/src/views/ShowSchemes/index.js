@@ -10,6 +10,9 @@ import Palette from "../../components/Palette/index"
 import Pagination from '@material-ui/lab/Pagination';
 import "./schemes.css"
 
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+
 const url = 'http://localhost:5000/palette/all';
 
 function ShowSchemes() {
@@ -20,6 +23,9 @@ function ShowSchemes() {
     const [error, setError] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [pageCount, setPageCount] = useState(0);
+    const [ratingSort, setRatingSort] = useState("desc");
+    const [dateSort, setDateSort] = useState("none");
+    const [typeSort, setTypeSort] = useState("rating");
 
     useEffect(() => {
         fetch(url)
@@ -35,21 +41,44 @@ function ShowSchemes() {
     }, []);
 
     const handleChange = (event,value) => {
-        console.log(value)
         setCurrentPage(value);
     };
 
     const getPaginatedData = () => {
         const startIndex = currentPage * dataLimit - dataLimit;
         const endIndex = startIndex + dataLimit;
-        console.log("index " + startIndex + " " + endIndex)
         return palettes.slice(startIndex, endIndex);
     };
+
+    let sortContainer = [];
+
+    const handleSorting = (event) => {
+        if(event.target.className === "sortRating"){
+            setTypeSort("rating")
+            setRatingSort((ratingSort === "desc") ? "asc" : "desc")
+            setDateSort("none")
+        } else {
+            setTypeSort("date")
+            setRatingSort("none")
+            setDateSort((dateSort === "desc") ? "asc" : "desc")
+        }
+    };
+
+    if(typeSort === "rating"){
+        sortContainer.push(<div className="sortDate" onClick={handleSorting}>Datum <ArrowDropUpIcon style={{color:"white"}}/></div>)
+        sortContainer.push((ratingSort === "desc") ? <div className="sortRating" onClick={handleSorting}>Rating <ArrowDropUpIcon/></div> : <div className="sortRating" onClick={handleSorting}>Rating <ArrowDropDownIcon/></div>)
+    } else {
+        sortContainer.push((dateSort === "desc") ? <div className="sortDate" onClick={handleSorting}>Datum <ArrowDropUpIcon/></div> : <div className="sortDate" onClick={handleSorting}>Datum <ArrowDropDownIcon/></div>)
+        sortContainer.push(<div className="sortRating" onClick={handleSorting}>Rating <ArrowDropUpIcon style={{color:"white"}}/></div>)
+    }
 
     return (
         <>
             <div>
                 <h2 className="schemes">ShowSchemes</h2>
+            </div>
+            <div className="sortingContainer">
+                {sortContainer}
             </div>
             <div className="paletteContainer">
                 {getPaginatedData().map(d => (<Palette key={d._id} colors={d.color} avgRating={d.avg_rating}/>))}
