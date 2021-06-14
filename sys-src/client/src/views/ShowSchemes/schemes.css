@@ -18,3 +18,23 @@
     justify-content: center;
     margin-bottom: 40px;
 }
+
+.sortingContainer{
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 50px;
+}
+
+.sortDate{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sortRating{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
