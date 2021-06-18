@@ -10,7 +10,7 @@
   constructor(props){
     super(props);
     this.state = {
-      colors: ["#f00","#ffff","ff22"]
+      colors: ["#f00","#ffff","ff22", "ff32"]
     }
   }
 

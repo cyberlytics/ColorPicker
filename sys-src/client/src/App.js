@@ -11,6 +11,7 @@ import Home from "./views/Home/home"
 import About from "./views/About/about"
 import Dashboard from "./views/Dashboard/dashboard"
 import ColorWheel from "./components/ColorWheel/index"
+import CreatePalette from "./views/CreatePalette"
 
 //Views
 import ShowSchemes from "./views/ShowSchemes"
@@ -34,6 +35,9 @@ function App() {
           </li>
           <li>
             <Link to="/wheel">Wheel</Link>
+          </li>
+          <li>
+            <Link to="/createPalette">create Palette</Link>
           </li>
         </ul>
 
@@ -61,6 +65,9 @@ function App() {
           </Route>
           <Route path="/wheel">
             <ColorWheel />
+          </Route>
+          <Route path="/createPalette">
+            <CreatePalette />
           </Route>
         </Switch>
       </div>
