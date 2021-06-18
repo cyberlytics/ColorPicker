@@ -1,3 +1,4 @@
+import { Button } from "../../components/Button"
 import "./home.css"
 import ColorContainer from "../../components/ColorContainer"
 function Home() {
@@ -8,3 +9,5 @@ function Home() {
     );
   }
   export default Home;
+
+  
