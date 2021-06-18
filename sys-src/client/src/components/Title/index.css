@@ -1,0 +1,15 @@
+/**
+Style-File for Title Component
+*/
+.titleStyle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: black;
+    margin: 2px;
+}

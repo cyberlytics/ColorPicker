@@ -10,6 +10,10 @@ import {
 import Home from "./views/Home/home"
 import About from "./views/About/about"
 import Dashboard from "./views/Dashboard/dashboard"
+import ColorWheel from "./components/ColorWheel/index"
+
+//Views
+import ShowSchemes from "./views/ShowSchemes"
 
 function App() {
   return (
@@ -24,6 +28,12 @@ function App() {
         </li>
         <li>
           <Link to="/dashboard">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/schemes">Schemes</Link>
+          </li>
+          <li>
+            <Link to="/wheel">Wheel</Link>
           </li>
         </ul>
 
@@ -45,6 +55,12 @@ function App() {
           </Route>
           <Route path="/dashboard">
             <Dashboard />
+          </Route>
+          <Route path="/schemes">
+            <ShowSchemes />
+          </Route>
+          <Route path="/wheel">
+            <ColorWheel />
           </Route>
         </Switch>
       </div>
