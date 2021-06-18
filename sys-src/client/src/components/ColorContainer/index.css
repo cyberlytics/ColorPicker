@@ -1,5 +1,4 @@
 .divColorContainer {
-    width: 20%;
     height: 300px;
     display: grid;
     grid-template-rows: 80% 20%;
