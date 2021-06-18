@@ -1,0 +1,16 @@
+.color-field {
+    width:100%;
+    background: rgb(64, 196, 31);
+    color: white;
+    display: grid;
+}
+
+.color-field-text {
+    justify-self: center;
+    align-self: center;
+}
+
+.color-field:hover {
+    opacity: 60%;
+}
+
