@@ -46,7 +46,7 @@ https://www.mongodb.com/try/download/community
 
 #### Start
 
-`"C:\Program Files\MongoDB\Server\4.4\bin\mongod.exe" --dbpath="H:\Studium\21\WebAnwEntw\projekt\wae-teamgelb\sys-src\data"`
+`"...MongoDB\Server\4.4\bin\mongod.exe" --dbpath="...\sys-src\data"`
 
 Startet MongoDB mit der Datenbank in unserem Verzeichnis.
 
