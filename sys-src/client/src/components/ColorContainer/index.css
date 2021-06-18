@@ -1,0 +1,14 @@
+.divColorContainer {
+    width: 20%;
+    height: 300px;
+    display: grid;
+    grid-template-rows: 80% 20%;
+}
+
+.container-color-buttons {
+    display: grid;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: rgb(223, 223, 223);
+    overflow: hidden;
+}
