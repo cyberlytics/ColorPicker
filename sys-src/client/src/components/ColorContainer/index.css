@@ -1,7 +1,9 @@
-.divColorContainer {
+.color-container {
     height: 300px;
+    width: 150px;
     display: grid;
     grid-template-rows: 80% 20%;
+    align-self: center;
 }
 
 .container-color-buttons {

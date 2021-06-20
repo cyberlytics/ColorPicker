@@ -30,16 +30,16 @@ export default function CreatePalette(params) {
   const [newColor, setNewColor] = useState("");
 
   return (
-    <div className="above">
-      <div className="row">
+    <div className="create-palette">
+      <div className="create-palette__row">
         <ColorWheel/>
         <SliderContainer/>
       </div>
-      <div className="row">
+      <div className="create-palette__row">
         <ColorContainer/>
-        <Button title={"Palette Speichern"} colors={colors} name={"Test"}></Button>
+        {/* <Button title={"Palette Speichern"} colors={colors} name={"Test"}></Button> */}
       </div>
-      <div className="row">blablabla</div>
+      <div className="create-palette__row">blablabla</div>
     </div>
   );
 }

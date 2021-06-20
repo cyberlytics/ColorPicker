@@ -4,8 +4,9 @@
  * Enthält:
  *  -Slider
  */
+import "./index.css";
 import React, { Component } from "react";
-import Slider from "../Slider/index.jsx";
+import Slider from "../Slider";
 
 // TODO: CSS
 
@@ -30,7 +31,7 @@ class SliderContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div class="slider-container">
         <Slider
           value={this.state.red_value}
           handleChange={this.handleChange}

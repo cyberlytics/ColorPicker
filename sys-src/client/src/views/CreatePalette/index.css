@@ -1,8 +1,9 @@
-.above {
+.create-palette {
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-columns: 2fr 1fr 3fr;
 }
 
-.row {
-    margin: 0px 20px;
+.create-palette__row {
+    display: grid;
+    justify-content: center;
 }

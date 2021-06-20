@@ -14,7 +14,7 @@ import AddColorButton from "../AddColorButton";
 
 class ColorContainer extends Component {
   state = {
-    counter: 0,
+    counter: 1,
   };
 
   handleAdd = () => {
@@ -30,7 +30,7 @@ class ColorContainer extends Component {
       children.push(<ColorField key={i}></ColorField>);
     }
     return (
-      <div className="divColorContainer">
+      <div className="color-container">
         <div className="container-color-buttons">{children}</div>
         <AddColorButton
           handleAddChild={this.handleAdd}
