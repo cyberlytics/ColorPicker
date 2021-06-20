@@ -23,12 +23,11 @@ function ShowSchemes() {
     const [error, setError] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [pageCount, setPageCount] = useState(0);
-    const [ratingSort, setRatingSort] = useState("desc");
-    const [dateSort, setDateSort] = useState("none");
-    const [typeSort, setTypeSort] = useState("rating");
+    const [sorting, setSorting] = useState("desc");
+    const [typeSort, setTypeSort] = useState("date");
 
     useEffect(() => {
-        fetch(url)
+        fetch(url + `/?type=${typeSort}&sort=${sorting}`)
           .then((response) => {
             if (response.ok) return response.json();
             throw new Error('something went wrong while requesting posts');
@@ -38,7 +37,7 @@ function ShowSchemes() {
               setPageCount(Math.ceil(palettes.length / dataLimit))
             })
           .catch((error) => setError(error.message));
-    }, []);
+    }, [typeSort,sorting]);
 
     const handleChange = (event,value) => {
         setCurrentPage(value);
@@ -54,22 +53,28 @@ function ShowSchemes() {
 
     const handleSorting = (event) => {
         if(event.target.className === "sortRating"){
+            if(typeSort === 'date'){
+                setSorting('asc')
+            }else{
+                setSorting(sorting === 'asc' ? 'desc' : 'asc')
+            }
             setTypeSort("rating")
-            setRatingSort((ratingSort === "desc") ? "asc" : "desc")
-            setDateSort("none")
         } else {
+            if(typeSort === 'rating'){
+                setSorting('asc')
+            }else{
+                setSorting(sorting === 'asc' ? 'desc' : 'asc')
+            }
             setTypeSort("date")
-            setRatingSort("none")
-            setDateSort((dateSort === "desc") ? "asc" : "desc")
         }
     };
 
     if(typeSort === "rating"){
-        sortContainer.push(<div className="sortDate" onClick={handleSorting}>Datum <ArrowDropUpIcon style={{color:"white"}}/></div>)
-        sortContainer.push((ratingSort === "desc") ? <div className="sortRating" onClick={handleSorting}>Rating <ArrowDropUpIcon/></div> : <div className="sortRating" onClick={handleSorting}>Rating <ArrowDropDownIcon/></div>)
+        sortContainer.push(<div key="sort1" className="sortDate" onClick={handleSorting}>Datum <ArrowDropUpIcon style={{color:"white"}}/></div>)
+        sortContainer.push((sorting === "asc") ? <div key="sort2" className="sortRating" onClick={handleSorting}>Rating <ArrowDropUpIcon/></div> : <div key="sort2" className="sortRating" onClick={handleSorting}>Rating <ArrowDropDownIcon/></div>)
     } else {
-        sortContainer.push((dateSort === "desc") ? <div className="sortDate" onClick={handleSorting}>Datum <ArrowDropUpIcon/></div> : <div className="sortDate" onClick={handleSorting}>Datum <ArrowDropDownIcon/></div>)
-        sortContainer.push(<div className="sortRating" onClick={handleSorting}>Rating <ArrowDropUpIcon style={{color:"white"}}/></div>)
+        sortContainer.push((sorting === "asc") ? <div key="sort3" className="sortDate" onClick={handleSorting}>Datum <ArrowDropUpIcon/></div> : <div key="sort3" className="sortDate" onClick={handleSorting}>Datum <ArrowDropDownIcon/></div>)
+        sortContainer.push(<div key="sort4" className="sortRating" onClick={handleSorting}>Rating <ArrowDropUpIcon style={{color:"white"}}/></div>)
     }
 
     return (
