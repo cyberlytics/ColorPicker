@@ -3,7 +3,13 @@ let paletteModel = require('../models/paletteModel');
 // GET all palettes
 exports.palette_all = async (req, res) => {
     try {
-        let result = await paletteModel.find().exec();
+        let result = ""
+        if(req.query.type == 'rating'){
+            result = await paletteModel.find().sort({ avg_rating: req.query.sort}).exec();
+        }
+        else{
+            result = await paletteModel.find().sort({ created: req.query.sort}).exec();
+        }
         res.send(result);
     } catch (error) {
         res.json({"status":"error"})
