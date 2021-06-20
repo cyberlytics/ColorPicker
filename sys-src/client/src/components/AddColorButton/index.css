@@ -11,3 +11,7 @@
     font-size: 30px;
     color: rgb(255, 255, 255);
 }
+
+.button-add-color:hover {
+    cursor: pointer;
+}
