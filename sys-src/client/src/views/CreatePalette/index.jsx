@@ -13,6 +13,7 @@ import ColorWheel from "../../components/ColorWheel";
 import ColorContainer from "../../components/ColorContainer";
 import SliderContainer from "../../components/SliderContainer";
 import {Button} from "../../components/Button";
+import { Preview } from "../../components/Preview";
 
 
 export default function CreatePalette(params) {
@@ -39,7 +40,7 @@ export default function CreatePalette(params) {
         <ColorContainer/>
         {/* <Button title={"Palette Speichern"} colors={colors} name={"Test"}></Button> */}
       </div>
-      <div className="create-palette__row">blablabla</div>
+      <div className="create-palette__row"><Preview/></div>
     </div>
   );
 }
