@@ -14,6 +14,7 @@ import ColorContainer from "../../components/ColorContainer";
 import SliderContainer from "../../components/SliderContainer";
 import {Button} from "../../components/Button";
 import { Preview } from "../../components/Preview";
+import Picker from "../../components/Picker";
 
 
 export default function CreatePalette(params) {
@@ -27,17 +28,12 @@ export default function CreatePalette(params) {
   //new created color in colorwheel or slider
   const [newColor, setNewColor] = useState("");
 
-  const getNewColor = (handleNewColor) => {setNewColor(handleNewColor)
-    console.log("create palette:" + handleNewColor);
-  };
-
   const getActiveColor = (handleActiveColor) => {setActiveColor(handleActiveColor)};
 
   return (
     <div className="create-palette">
       <div className="create-palette__row">
-        <ColorWheel callbackFromParent={getNewColor}/>
-        <SliderContainer/>
+        <Picker/>
       </div>
       <div className="create-palette__row">
         <ColorContainer/>
