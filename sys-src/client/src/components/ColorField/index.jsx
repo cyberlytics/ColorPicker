@@ -11,6 +11,9 @@ class ColorField extends Component {
   render() {
     return (
       <div className="color-field">
+        <div className="button-delete">
+          <p className="button-delete-text">X</p>     
+        </div>
         <span className="color-field-text">#FFFFFF</span>
       </div>
     );
