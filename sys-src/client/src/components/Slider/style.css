@@ -1,0 +1,31 @@
+fieldset {
+    border: none;
+}
+
+output{
+    display: inline-block;
+    min-width: 2.5em;
+  }
+
+label, output{
+    padding: 2px 9px;
+    border-radius: 3px;
+    font-family: 'Roboto', sans-serif;
+    color: #000;
+    font-size: 1.1em;
+}
+
+label[for=slider-red], output[for=slider-red]{
+  background-color: #f00;
+}
+
+label[for=slider-green], output[for=slider-green]{
+  background-color: #0f0;
+}
+label[for=slider-blue], output[for=slider-blue]{
+  background-color: #00f;
+}
+
+label[for=slider-brightness], output[for=slider-brightness]{
+  border: 1px solid black;
+}

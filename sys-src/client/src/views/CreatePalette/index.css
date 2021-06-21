@@ -1,0 +1,9 @@
+.create-palette {
+    display: grid;
+    grid-template-columns: 2fr 1fr 3fr;
+}
+
+.create-palette__row {
+    display: grid;
+    justify-content: center;
+}
