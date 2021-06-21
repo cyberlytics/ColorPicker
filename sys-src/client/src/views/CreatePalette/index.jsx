@@ -21,19 +21,22 @@ export default function CreatePalette(params) {
   //Array contains all created colors
   const [colors, setColors] = useState([]);
 
-  //name of palette
-  const [paletteName, setPaletteName] = useState("");
-
   //active color which should change
   const [activeColor, setActiveColor] = useState(0);
 
   //new created color in colorwheel or slider
   const [newColor, setNewColor] = useState("");
 
+  const getNewColor = (handleNewColor) => {setNewColor(handleNewColor)
+    console.log("create palette:" + handleNewColor);
+  };
+
+  const getActiveColor = (handleActiveColor) => {setActiveColor(handleActiveColor)};
+
   return (
     <div className="create-palette">
       <div className="create-palette__row">
-        <ColorWheel/>
+        <ColorWheel callbackFromParent={getNewColor}/>
         <SliderContainer/>
       </div>
       <div className="create-palette__row">
