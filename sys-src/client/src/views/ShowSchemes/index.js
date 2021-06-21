@@ -79,9 +79,6 @@ function ShowSchemes() {
 
     return (
         <>
-            <div>
-                <h2 className="schemes">ShowSchemes</h2>
-            </div>
             <div className="sortingContainer">
                 {sortContainer}
             </div>
