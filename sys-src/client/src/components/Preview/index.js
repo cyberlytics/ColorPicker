@@ -15,7 +15,7 @@
 //  import { ReactComponent as Subtitle } from './subtitle.svg';
 //  import { ReactComponent as Text }  from './text.svg';
 
- import { SketchPicker } from 'react-color';
+ //import { SketchPicker } from 'react-color';
  import Header from './header.svg';
  import Headline from './headline.svg';
  import Container from './container.svg';
@@ -26,7 +26,7 @@
  
  
  export function Preview () {
-     const [color, setColor] = useState('#ff000');
+    //  const [color, setColor] = useState('#ff000');
      return (
         <div className="preview-container">
 
