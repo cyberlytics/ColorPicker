@@ -9,7 +9,7 @@ class ColorWheel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      colors: ["#f00", "#ffff", "ff22", "ff32"],
+      colors: ["#f00"],
       newColor: "",
     };
   }

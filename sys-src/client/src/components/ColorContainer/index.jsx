@@ -14,7 +14,7 @@ import AddColorButton from "../AddColorButton";
 
 class ColorContainer extends Component {
   state = {
-    counter: 1,
+    counter: 2,
   };
 
   handleAdd = () => {
