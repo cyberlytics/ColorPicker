@@ -1,9 +1,100 @@
 .create-palette {
-    display: grid;
-    grid-template-columns: 2fr 1fr 3fr;
+ 
 }
 
 .create-palette__row {
-    display: grid;
-    justify-content: center;
+
+}
+
+.col1 {
+    background-color: rgb(228, 228, 228);
+}
+
+.col2 {
+
+}
+
+.col3 {
+    
+}
+
+.container-create-palette {
+
+    height: 90%;
+    display: grid; 
+    grid-template-columns: 0.5fr 3.5fr 2fr 0.5fr;
+    grid-template-rows: 0.1fr 4fr 0.1fr;
+    gap: 0px 0px;
+    grid-template-areas: 
+    ". . . ."
+    ". container-large container-small ."
+    ". . . .";
+}
+
+.container-small {
+    grid-area: container-small;
+    display: grid; 
+    grid-template-columns: 1fr; 
+    grid-template-rows: 1.8fr 0.2fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "container-preview" 
+    "container-save-button";
+    margin-left: 20px;
+    overflow: hidden;
+    border-radius: 50px;
+    border: 5px;
+    border-style: dashed;
+    box-shadow: 0px 0px 20px 0px rgb(163, 163, 163);
+}
+
+.container-save-button {
+    grid-area: container-save-button;
+    background-color: blue;
+}
+
+.container-preview {
+    background-color: blue;
+}
+
+
+.container-large { 
+    grid-area: container-large;
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "container-picker container-color-container";
+    background-color: rgb(236, 236, 236);
+    border-radius: 50px;
+    box-shadow: 0px 0px 20px 0px rgb(163, 163, 163);
+}
+
+.container-picker {
+    grid-area: container-picker;
+    display: grid; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "container-color-wheel"
+    "container-slider";
+    justify-items: center;
+    margin-top: 50px;
+}
+
+.container-color-wheel {
+    grid-area: container-color-wheel;
+}
+
+.container-slider {
+    grid-area: container-slider;
+}
+
+.container-color-container {
+    grid-area: container-color-container;
+}
+
+.lueckenfueller {
+    background-color: rgb(255, 209, 191);
 }

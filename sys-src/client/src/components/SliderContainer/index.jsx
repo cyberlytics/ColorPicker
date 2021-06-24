@@ -4,7 +4,6 @@
  * Enthält:
  *  -Slider
  */
-import "./index.css";
 import React, { Component } from "react";
 import Slider from "../Slider";
 
@@ -31,7 +30,7 @@ class SliderContainer extends Component {
 
   render() {
     return (
-      <div class="slider-container">
+      <div class="container-slider">
         <Slider
           value={this.state.red_value}
           handleChange={this.handleChange}
