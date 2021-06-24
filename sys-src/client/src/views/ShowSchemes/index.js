@@ -7,11 +7,16 @@
 
 import React, { useState, useEffect } from 'react';
 import Palette from "../../components/Palette/index"
+
 import Pagination from '@material-ui/lab/Pagination';
 import "./schemes.css"
 
+
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+
+import Comment from '../../components/Comment/index.jsx';
+import PopUpPalette from '../../components/PopUpPalette/index.jsx';
 
 const url = 'http://localhost:5000/palette/all';
 
@@ -25,6 +30,8 @@ function ShowSchemes() {
     const [pageCount, setPageCount] = useState(0);
     const [sorting, setSorting] = useState("desc");
     const [typeSort, setTypeSort] = useState("date");
+
+    const [btnPopup, setBtnPopup] = useState(false);
 
     useEffect(() => {
         fetch(url + `/?type=${typeSort}&sort=${sorting}`)
@@ -80,14 +87,20 @@ function ShowSchemes() {
     return (
         <>
             <div className="sortingContainer">
-                {sortContainer}
+                {sortContainer}                
             </div>
             <div className="paletteContainer">
-                {getPaginatedData().map(d => (<Palette key={d._id} colors={d.color} avgRating={d.avg_rating}/>))}
+                {getPaginatedData().map(d => (<Palette key={d._id} colors={d.color} avgRating={d.avg_rating}/>))}                
             </div>
             <div className="paginationContainer">
-                <Pagination count={pageCount} page={currentPage} onChange={handleChange} />
+                <Pagination count={pageCount} page={currentPage} onChange={handleChange} />                
             </div>
+
+
+            <button onClick={()=> setBtnPopup(true) }>popup</button>
+            <PopUpPalette trigger={btnPopup} setTrigger={setBtnPopup}>
+                <h3>WTF ?!?!? wo ist das </h3>
+            </PopUpPalette>
         </>
     );
 }
