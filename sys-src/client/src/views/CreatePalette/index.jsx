@@ -45,7 +45,6 @@ export default function CreatePalette(params) {
     setActiveColor(handleActiveColor);
   };
 
-
   //handles the opening and closing of the Save palette dialog. Ensures that paletteName and noName are reset.
   const handleSaveProcess = () => {
     setVisible(!visible);
@@ -65,17 +64,16 @@ export default function CreatePalette(params) {
           "Content-Type": "application/json; charset=utf-8",
         },
         body: JSON.stringify({ name: saveName, color: saveColor }),
-      })
-        .then(() => {
-          setPaletteName("");
-          setVisible(!visible);
-          setNoName(false);
-        });
+      }).then(() => {
+        setPaletteName("");
+        setVisible(!visible);
+        setNoName(false);
+      });
     }
   };
 
   return (
-    <div className="create-palette">
+    <div className="container-create-palette">
       {/**Save Palette Dialog */}
       <Dialog open={visible} onClose={handleSaveProcess}>
         <DialogTitle>Erstellte Palette wirklich speichern?</DialogTitle>
@@ -111,18 +109,19 @@ export default function CreatePalette(params) {
         </DialogContent>
       </Dialog>
       {/**View Content */}
-      <div className="create-palette__row">
+      <div className="container-large">
         <Picker />
-      </div>
-      <div className="create-palette__row">
         <ColorContainer />
-        <Button
-          title={"Palette Speichern"}
-          onClick={handleSaveProcess}
-        ></Button>
       </div>
-      <div className="create-palette__row">
-        <Preview />
+      <div className="container-small">
+        {/* <Preview /> */}
+        <div className="lueckenfueller">FILLER</div>
+        <div className="container-save-button">
+          <Button
+            title={"Palette Speichern"}
+            onClick={handleSaveProcess}
+          ></Button>
+        </div>
       </div>
     </div>
   );

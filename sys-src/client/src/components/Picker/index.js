@@ -19,7 +19,7 @@ class Picker extends Component {
     // };
 
     return (
-      <div>
+      <div className="container-picker">
         {/* <ColorWheel callbackFromParent={getNewColor} /> */}
         <ColorWheel/>
         <SliderContainer />

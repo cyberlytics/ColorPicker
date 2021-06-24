@@ -31,7 +31,7 @@ class ColorContainer extends Component {
     }
     return (
       <div className="color-container">
-        <div className="container-color-buttons">{children}</div>
+        <div className="container-color-tiles">{children}</div>
         <AddColorButton
           handleAddChild={this.handleAdd}
         ></AddColorButton>
