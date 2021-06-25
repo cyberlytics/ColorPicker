@@ -34,3 +34,6 @@ import "./index.css";
   render() {
     return <div className="container-color-wheel" ref={(el) => (this.el = el)} />;
   }
+ }
+
+ export default ColorWheel;
