@@ -27,7 +27,7 @@ class Slider extends Component {
             ref={this.value}
             defaultValue={this.props.value}
             onChange={() =>
-              this.props.handleChange(this.props.type, this.value.current.value)
+              this.props.handleChange(this.props.type, parseInt(this.value.current.value))
             }
           />
           <output for={"slider-"+this.props.type}>

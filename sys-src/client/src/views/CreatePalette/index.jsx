@@ -20,11 +20,14 @@ import {
 import ColorContainer from "../../components/ColorContainer";
 import { Button } from "../../components/Button";
 import { Preview } from "../../components/Preview";
-import Picker from "../../components/Picker";
+import Picker from "../../components/Picker/index";
 
 export default function CreatePalette(params) {
+
+// state = { colors: ["#8F9C8B", "#FFFFFF"], activeColor: 0, newColor: "" };
+
   //Array contains all created colors
-  const [colors, setColors] = useState([]);
+  const [colors, setColors] = useState(["#8F9C8B", "#FFFFFF"]);
 
   //active color which should change
   const [activeColor, setActiveColor] = useState(0);
@@ -72,6 +75,12 @@ export default function CreatePalette(params) {
     }
   };
 
+  const updateHexValue = (hexValue) => {
+    let colorss = [...colors];
+    colorss[activeColor] = hexValue;
+    setColors(colorss);
+  }
+
   return (
     <div className="container-create-palette">
       {/**Save Palette Dialog */}
@@ -109,8 +118,9 @@ export default function CreatePalette(params) {
         </DialogContent>
       </Dialog>
       {/**View Content */}
+
       <div className="container-large">
-        <Picker />
+        <Picker colors={ colors } activeColor={ activeColor } updateHexValue={updateHexValue} />
         <ColorContainer />
       </div>
       <div className="container-small">
