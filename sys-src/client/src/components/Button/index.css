@@ -11,6 +11,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 30px;
 }
 
 .buttonStyle:hover {

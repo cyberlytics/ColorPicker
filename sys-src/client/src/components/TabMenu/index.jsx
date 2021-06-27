@@ -3,7 +3,8 @@
  * zusammen mit entsprechender View.
  * (s.a. TabBar, Title, ShowSchemes und CreatePalette)
  */
-
+ import "./index.css";
+ 
  import React from 'react';
  import PropTypes from 'prop-types';
  import { makeStyles } from '@material-ui/core/styles';
