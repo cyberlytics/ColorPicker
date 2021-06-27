@@ -124,7 +124,7 @@ export default function CreatePalette(params) {
         <ColorContainer />
       </div>
       <div className="container-small">
-        {/* <Preview /> */}
+        <Preview colors = {colors} />
         <div className="lueckenfueller">FILLER</div>
         <div className="container-save-button">
           <Button
