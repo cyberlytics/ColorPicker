@@ -10,7 +10,7 @@ import "./index.css";
   constructor(props){
     super(props);
     this.state = {
-      colors: ["#f00","#ffff","ff22", "ff32"]
+      colors: ["#f00"]
     }
   }
 
@@ -34,6 +34,5 @@ import "./index.css";
   render() {
     return <div className="container-color-wheel" ref={(el) => (this.el = el)} />;
   }
- }
-
- export default ColorWheel;
+}
+export default ColorWheel;
