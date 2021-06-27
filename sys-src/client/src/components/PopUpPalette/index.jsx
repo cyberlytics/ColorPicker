@@ -18,7 +18,7 @@
                     <Comment/>
                   <button className="btnPopup" id="btnSave">Speichern</button>
                   <button className="btnPopup" id="btnClose" onClick={() => props.setTrigger(false)}>
-                      Sclissen
+                      Schließen
                     </button>                  
                 </div>
                 
