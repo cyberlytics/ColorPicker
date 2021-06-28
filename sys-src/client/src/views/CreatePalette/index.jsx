@@ -74,10 +74,16 @@ export default function CreatePalette(params) {
       });
     }
   };
-
+  
   const updateHexValue = (hexValue) => {
     let colorss = [...colors];
     colorss[activeColor] = hexValue;
+    setColors(colorss);
+  }
+
+  const changeColor = (color) => {
+    let colorss = [...colors];
+    colorss[activeColor] = color.hexString;
     setColors(colorss);
   }
 
@@ -120,7 +126,7 @@ export default function CreatePalette(params) {
       {/**View Content */}
 
       <div className="container-large">
-        <Picker colors={ colors } activeColor={ activeColor } updateHexValue={updateHexValue} />
+        <Picker colors={ colors } activeColor={ activeColor } updateHexValue={updateHexValue} changeColor={changeColor}/>
         <ColorContainer />
       </div>
       <div className="container-small">

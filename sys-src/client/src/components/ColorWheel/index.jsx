@@ -9,9 +9,7 @@ import "./index.css";
 
   constructor(props){
     super(props);
-    this.state = {
-      colors: ["#f00"]
-    }
+
   }
 
   componentDidMount() {
@@ -19,20 +17,17 @@ import "./index.css";
       // Set the size of the color picker
       width: 350,
       // Set the initial color to pure red
-      colors: this.state.colors,
+      color: this.props.colors,
     });
 
-    colorPicker.on("color:change", function (color) {
-      // log the current color as a HEX string
-      console.log(color.hexString);
-      this.setState({ newColor: color.hexString });
-      this.onColorChange();
-      console.log(this.state.newColor);
-    });
+    colorPicker.on("color:change", this.props.changeColor);
   };
 
+
   render() {
-    return <div className="container-color-wheel" ref={(el) => (this.el = el)} />;
+    return <div>
+      <div className="container-color-wheel" ref={(el) => (this.el = el)} />
+      </div>;
   }
 }
 export default ColorWheel;
