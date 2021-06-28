@@ -13,7 +13,7 @@
     grid-area: container-small;
     display: grid; 
     grid-template-columns: 1fr; 
-    grid-template-rows: 1.8fr 0.2fr; 
+    grid-template-rows: 1.9fr 0.1fr; 
     gap: 0px 0px; 
     grid-template-areas: 
     "container-preview" 
@@ -21,18 +21,16 @@
     margin-left: 20px;
     overflow: hidden;
     border-radius: 30px;
-    border: 5px;
-    border-style: dashed;
     box-shadow: 0px 0px 20px 0px rgb(163, 163, 163);
 }
 
 .container-save-button {
     grid-area: container-save-button;
-    background-color: blue;
+    background-color: rgb(191, 191, 255);
 }
 
 .container-preview {
-    background-color: blue;
+    background-color: white;
 }
 
 
@@ -72,8 +70,4 @@
 
 .container-color-container {
     grid-area: container-color-container;
-}
-
-.lueckenfueller {
-    background-color: rgb(255, 209, 191);
 }
