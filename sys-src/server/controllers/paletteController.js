@@ -1,5 +1,15 @@
 let paletteModel = require('../models/paletteModel');
 
+// GET one palette
+exports.palette_single = async (req, res) => {
+    try {
+        let result = await paletteModel.findById(req.params.id).exec();
+        res.send(result);
+    } catch (error) {
+        res.json({"status":"no result found"})
+    }
+};
+
 // GET all palettes
 exports.palette_all = async (req, res) => {
     try {
