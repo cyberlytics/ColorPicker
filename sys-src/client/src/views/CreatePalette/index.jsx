@@ -27,7 +27,7 @@ export default function CreatePalette(params) {
 // state = { colors: ["#8F9C8B", "#FFFFFF"], activeColor: 0, newColor: "" };
 
   //Array contains all created colors
-  const [colors, setColors] = useState(["#8F9C8B", "#FFFFFF"]);
+  const [colors, setColors] = useState(["#e33a10", "#edc71c", "#1ced26", "#1cdfed", "#5b1f5a"]);
 
   //active color which should change
   const [activeColor, setActiveColor] = useState(0);
@@ -124,7 +124,7 @@ export default function CreatePalette(params) {
         <ColorContainer />
       </div>
       <div className="container-small">
-        {/* <Preview /> */}
+        <Preview colors = {colors} />
         <div className="lueckenfueller">FILLER</div>
         <div className="container-save-button">
           <Button

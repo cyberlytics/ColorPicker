@@ -7,14 +7,10 @@
 
 import React, { useState, useEffect } from 'react';
 import Palette from "../../components/Palette/index"
-
 import Pagination from '@material-ui/lab/Pagination';
 import "./schemes.css"
-
-
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-
 import Comment from '../../components/Comment/index.jsx';
 import PopUpPalette from '../../components/PopUpPalette/index.jsx';
 
@@ -22,6 +18,7 @@ const url = 'http://localhost:5000/palette/all';
 
 function ShowSchemes() {
 
+    //Bestimmt wie viele Paletten pro Seite angezeigt werden
     const dataLimit = 4;
 
     const [palettes, setPalettes] = useState([]);
@@ -50,14 +47,14 @@ function ShowSchemes() {
         setCurrentPage(value);
     };
 
+    //Berechnet den Start- und Endindex und nimmt sich den passenden Teil aus den Paletten
     const getPaginatedData = () => {
         const startIndex = currentPage * dataLimit - dataLimit;
         const endIndex = startIndex + dataLimit;
         return palettes.slice(startIndex, endIndex);
     };
 
-    let sortContainer = [];
-
+    //Schaltet zwischen den einzelnen Sortierungsmöglichkeiten um
     const handleSorting = (event) => {
         if(event.target.className === "sortRating"){
             if(typeSort === 'date'){
@@ -76,6 +73,8 @@ function ShowSchemes() {
         }
     };
 
+    //Je nach Sortierung wird die Darstellung entsprechend gerendert
+    let sortContainer = [];
     if(typeSort === "rating"){
         sortContainer.push(<div key="sort1" className="sortDate" onClick={handleSorting}>Datum <ArrowDropUpIcon style={{color:"white"}}/></div>)
         sortContainer.push((sorting === "asc") ? <div key="sort2" className="sortRating" onClick={handleSorting}>Rating <ArrowDropUpIcon/></div> : <div key="sort2" className="sortRating" onClick={handleSorting}>Rating <ArrowDropDownIcon/></div>)
