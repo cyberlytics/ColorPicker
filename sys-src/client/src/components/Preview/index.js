@@ -101,6 +101,7 @@ const Logo = styled(ReactLogo)`
    } 
    //wenn fünf Farben ausgewählt wurden
    else {
+      return(
       <div>         
             <Header backgroundColor = {colors[0]}>
                <Title color = {colors[1]}>Welcome to this page</Title>
@@ -113,6 +114,7 @@ const Logo = styled(ReactLogo)`
                </Text>
             </Container>
          </div>
+      );
    }
 
      
