@@ -23,11 +23,16 @@ import { Preview } from "../../components/Preview";
 import Picker from "../../components/Picker/index";
 
 export default function CreatePalette(params) {
-
-// state = { colors: ["#8F9C8B", "#FFFFFF"], activeColor: 0, newColor: "" };
+  // state = { colors: ["#8F9C8B", "#FFFFFF"], activeColor: 0, newColor: "" };
 
   //Array contains all created colors
-  const [colors, setColors] = useState(["#e33a10", "#edc71c", "#1ced26", "#1cdfed", "#5b1f5a"]);
+  const [colors, setColors] = useState([
+    "#e33a10",
+    "#edc71c",
+    "#1ced26",
+    "#1cdfed",
+    "#5b1f5a",
+  ]);
 
   //active color which should change
   const [activeColor, setActiveColor] = useState(0);
@@ -79,7 +84,7 @@ export default function CreatePalette(params) {
     let colorss = [...colors];
     colorss[activeColor] = hexValue;
     setColors(colorss);
-  }
+  };
 
   return (
     <div className="container-create-palette">
@@ -120,12 +125,15 @@ export default function CreatePalette(params) {
       {/**View Content */}
 
       <div className="container-large">
-        <Picker colors={ colors } activeColor={ activeColor } updateHexValue={updateHexValue} />
+        <Picker
+          colors={colors}
+          activeColor={activeColor}
+          updateHexValue={updateHexValue}
+        />
         <ColorContainer />
       </div>
       <div className="container-small">
-        <Preview colors = {colors} />
-        <div className="lueckenfueller">FILLER</div>
+        <Preview colors={colors} />
         <div className="container-save-button">
           <Button
             title={"Palette Speichern"}
