@@ -4,58 +4,118 @@
  *  - tbc...
  */
 
- import React, {useState} from 'react';
- import './Preview.css';
-//  import { SketchPicker } from 'react-color';
-//  import { ReactComponent as Header } from './header.svg';
-//  import { ReactComponent as Headline } from './headline.svg';
-//  import { ReactComponent as Container } from './container.svg';
-//  import { ReactComponent as Line } from './line.svg';
-//  import { ReactComponent as ReactLogo } from './react_logo.svg';
-//  import { ReactComponent as Subtitle } from './subtitle.svg';
-//  import { ReactComponent as Text }  from './text.svg';
+ import React, { useState, useEffect } from 'react';
+ import styled from 'styled-components';
+ import { ReactComponent as ReactLogo } from "././logo.svg"; 
 
- //import { SketchPicker } from 'react-color';
- import Header from './header.svg';
- import Headline from './headline.svg';
- import Container from './container.svg';
- import Line from './line.svg';
- import ReactLogo from './react_logo.svg';
- import Subtitle from './subtitle.svg';
- import Text  from './text.svg';
+ // einzelne Elemente der Preview als "styled-components"
+ const Title = styled.h1`
+   font-family: sans-serif;
+   font-size: 2rem;
+   text-align: center;
+   color: ${props => props.color};
+ `
+
+const Subtitle = styled.p`
+   color: black;
+   font-family: monospace;
+   text-align: center;
+`
+
+const Header = styled.div`
+   padding: 4em;
+   background-color: ${props => props.backgroundColor}
+`
+const Container = styled.div`
+   padding: 4em;
+   height: 300px;
+   background-color: ${props => props.backgroundColor}
+`
+
+const Text = styled.p`
+  text-align: left;
+  margin-left: 30px;
+  color: ${props => props.color}
+`
+
+const Logo = styled(ReactLogo)`
+   color: ${props => props.color}
+`
+
+
  
- 
- export function Preview () {
-    //  const [color, setColor] = useState('#ff000');
-     return (
-        <div className="preview-container">
+ export function Preview (props) {
 
-            {/* SketckPicker zum testen der Farben */}
-            {/* <SketchPicker color={color} onChangeComplete={ (color) => {setColor(color.hex)} }/>
-            <div style={{color}}>Test</div> */}
-
-            <div className="preview_row"> 
-                {/* <Header/>
-                <Headline/>
-                <Subtitle/> */}
-                <img src={Header} id="header"/>
-                <img src={Headline} id="headline"/>
-                <img src={Subtitle} id="subtitle"/>
-            </div>
-            <div className="preview_row">
-                {/* <Container/>
-                <Line/>
-                <ReactLogo/>
-                <Text/> */}
-                <img src={Container} id="container"/>
-                <img src={Line} id="line"/>
-                <img src={ReactLogo} id="reactLogo"/>
-                <img src={Text} id="text"/>
-            </div>
-            
+   const {colors} = props;
+      
+   //wenn zwei Farben ausgewählt wurden
+   if(colors.length === 2){
+      return(
+         <div>         
+            <Header backgroundColor = {colors[0]}>
+               <Title color = {colors[1]}>Welcome to this page</Title>
+               <Subtitle>home gallery contact</Subtitle>
+            </Header>
+            <Container backgroundColor = {colors[1]}>
+               <Logo color = {colors[0]}/>
+               <Text color = {colors[0]}>
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+               </Text>
+            </Container>
         </div>
+      )
+   } 
+   //wenn drei Farben ausgewählt wurden
+   else if(colors.length === 3){
+      return(
+         <div>         
+            <Header backgroundColor = {colors[2]}>
+               <Title color = {colors[0]}>Welcome to this page</Title>
+               <Subtitle>home gallery contact</Subtitle>
+            </Header>
+            <Container backgroundColor = {colors[0]}>
+               <Logo color = {colors[2]}/>
+               <Text color = {colors[1]}>
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+               </Text>
+            </Container>
+        </div>
+      )
+   } 
+   //wenn vier Farben ausgewählt wurden
+   else if(colors.length === 4){
+      return(
+         <div>         
+            <Header backgroundColor = {colors[0]}>
+               <Title color = {colors[1]}>Welcome to this page</Title>
+               <Subtitle>home gallery contact</Subtitle>
+            </Header>
+            <Container backgroundColor = {colors[3]}>
+               <Logo color = {colors[2]}/>
+               <Text color = {colors[2]}>
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+               </Text>
+            </Container>
+         </div>
+      )
+   } 
+   //wenn fünf Farben ausgewählt wurden
+   else {
+      return(
+      <div>         
+            <Header backgroundColor = {colors[0]}>
+               <Title color = {colors[1]}>Welcome to this page</Title>
+               <Subtitle>home gallery contact</Subtitle>
+            </Header>
+            <Container backgroundColor = {colors[3]}>
+               <Logo color = {colors[4]}/>
+               <Text color = {colors[2]}>
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+               </Text>
+            </Container>
+         </div>
+      );
+   }
 
-        );
-
-    
-     }
+     
+   }
