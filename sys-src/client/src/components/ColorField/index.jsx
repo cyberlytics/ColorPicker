@@ -6,20 +6,24 @@
 
 import "./index.css";
 import React, { Component } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-
 
 class ColorField extends Component {
   render() {
-    const iconTrash = <FontAwesomeIcon icon={faTrashAlt
-    }/>
+    const iconTrash = <FontAwesomeIcon icon={faTrashAlt} />;
     return (
-      <div className="color-field" style={{background: this.props.colors[this.props.number]}} onClick={ ()=>this.props.setActiveColor(this.props.number) }>
+      <div
+        className="color-field"
+        style={{ background: this.props.colors[this.props.number] }}
+        onClick={() => this.props.setActiveColor(this.props.number)}
+      >
         <div className="button-delete">
-          <p className="button-delete-text">{iconTrash}</p>     
+          <p className="button-delete-text">{iconTrash}</p>
         </div>
-        <span className="color-field-text">{ this.props.colors[this.props.number] }</span>
+        <span className="color-field-text">
+          {this.props.colors[this.props.number]}
+        </span>
       </div>
     );
   }
