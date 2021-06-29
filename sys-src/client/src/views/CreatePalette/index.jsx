@@ -29,9 +29,9 @@ export default function CreatePalette(params) {
   const [colors, setColors] = useState([
     "#e33a10",
     "#edc71c",
-    "#1ced26",
-    "#1cdfed",
-    "#5b1f5a",
+    // "#1ced26",
+    // "#1cdfed",
+    // "#5b1f5a",
   ]);
 
   //active color which should change
@@ -92,6 +92,19 @@ export default function CreatePalette(params) {
     setColors(colorss);
   }
 
+  const handleAdd = () => {
+    console.log(colors.length);
+    if (colors.length < 5 ) {
+      let colorss = [...colors];
+      colorss.push("#ABBBFF");
+      setColors([...colorss]);
+    }
+  };
+
+  const changeActiveColor = (number) => {
+    setActiveColor(number);
+  }
+
   return (
     <div className="container-create-palette">
       {/**Save Palette Dialog */}
@@ -137,7 +150,11 @@ export default function CreatePalette(params) {
           updateHexValue={updateHexValue}
           changeColor = {changeColor}
         />
-        <ColorContainer />
+        <ColorContainer
+        colors={colors}
+        handleAdd={handleAdd}
+        setActiveColor={changeActiveColor}
+        />
       </div>
       <div className="container-small">
         <Preview colors={colors} />

@@ -11,8 +11,6 @@ class Slider extends Component {
     this.value = React.createRef();
   }
 
-// TODO: CSS
-
   render() {
     return (
       <div>
@@ -25,7 +23,7 @@ class Slider extends Component {
             class={this.props.type}
             step="1"
             ref={this.value}
-            defaultValue={this.props.value}
+            value={this.props.value}
             onChange={() =>
               this.props.handleChange(this.props.type, parseInt(this.value.current.value))
             }

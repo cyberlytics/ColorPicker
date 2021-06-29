@@ -6,9 +6,6 @@
  */
 import React, { Component } from "react";
 import Slider from "../Slider";
-
-// TODO: CSS
-
 class SliderContainer extends Component {
 
   
