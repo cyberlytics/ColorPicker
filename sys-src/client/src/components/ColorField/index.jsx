@@ -15,11 +15,12 @@ class ColorField extends Component {
     const iconTrash = <FontAwesomeIcon icon={faTrashAlt
     }/>
     return (
-      <div className="color-field" style={{background: this.props.colors[this.props.number]}} onClick={ ()=>this.props.setActiveColor(this.props.number) }>
+      <div className="color-field" style={{background: this.props.colors[this.props.number]}} onClick={ ()=>this.props.changeActiveColor(this.props.number) }>
         <div className="button-delete">
-          <p className="button-delete-text">{iconTrash}</p>     
+          <p className="button-delete-text" onClick={()=>this.props.deleteColor(this.props.number)}>{iconTrash}</p>
         </div>
         <span className="color-field-text">{ this.props.colors[this.props.number] }</span>
+        
       </div>
     );
   }

@@ -93,7 +93,6 @@ export default function CreatePalette(params) {
   }
 
   const handleAdd = () => {
-    console.log(colors.length);
     if (colors.length < 5 ) {
       let colorss = [...colors];
       colorss.push("#ABBBFF");
@@ -103,6 +102,19 @@ export default function CreatePalette(params) {
 
   const changeActiveColor = (number) => {
     setActiveColor(number);
+  }
+
+  const deleteColor = (number) => {
+
+    changeActiveColor(0);
+    
+    if (colors.length > 2 ) {
+ 
+      let colorss = [...colors];
+      colorss.splice(number,1);
+      setColors([...colorss]);
+    }
+    else (console.log("Immer Mind. 2 Colors"));
   }
 
   return (
@@ -153,7 +165,8 @@ export default function CreatePalette(params) {
         <ColorContainer
         colors={colors}
         handleAdd={handleAdd}
-        setActiveColor={changeActiveColor}
+        changeActiveColor={changeActiveColor}
+        deleteColor={deleteColor}
         />
       </div>
       <div className="container-small">
