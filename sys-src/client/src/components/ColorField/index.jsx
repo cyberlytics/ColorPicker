@@ -6,14 +6,12 @@
 
 import "./index.css";
 import React, { Component } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-
 
 class ColorField extends Component {
   render() {
-    const iconTrash = <FontAwesomeIcon icon={faTrashAlt
-    }/>
+    const iconTrash = <FontAwesomeIcon icon={faTrashAlt} />;
     return (
       <div className="color-field" style={{background: this.props.colors[this.props.number]}} onClick={ ()=>this.props.changeActiveColor(this.props.number) }>
         <div className="button-delete">
@@ -21,6 +19,7 @@ class ColorField extends Component {
         </div>
         <span className="color-field-text">{ this.props.colors[this.props.number] }</span>
         
+
       </div>
     );
   }
