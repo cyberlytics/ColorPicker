@@ -19,9 +19,10 @@ class ColorContainer extends Component {
       children.push(
         <ColorField
           key={i}
-          setActiveColor={this.props.setActiveColor}
+          changeActiveColor={this.props.changeActiveColor}
           colors={this.props.colors}
           number={i}
+          deleteColor={this.props.deleteColor}
         ></ColorField>
       );
     }
