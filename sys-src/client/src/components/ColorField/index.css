@@ -41,10 +41,10 @@
     align-self: center;
     font-size: 30px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color:black;
+    color: rgba(255, 255, 255, 0.678);
 }
 
 .button-delete-text:hover {
-    color:rgb(95, 224, 192);
+    color:rgb(255, 255, 255);
     opacity: 1;
 }

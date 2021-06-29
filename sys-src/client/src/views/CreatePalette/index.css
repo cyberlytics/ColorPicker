@@ -13,7 +13,7 @@
     grid-area: container-small;
     display: grid; 
     grid-template-columns: 1fr; 
-    grid-template-rows: 1.9fr 0.1fr; 
+    grid-template-rows: 1.9fr 0.2fr; 
     gap: 0px 0px; 
     grid-template-areas: 
     "container-preview" 
@@ -26,7 +26,10 @@
 
 .container-save-button {
     grid-area: container-save-button;
-    background-color: rgb(191, 191, 255);
+    background-color: rgb(236, 236, 236);
+    display: grid;
+    justify-items: end;
+    align-items: center;
 }
 
 .container-preview {
