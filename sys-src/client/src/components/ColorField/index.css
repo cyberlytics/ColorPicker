@@ -1,7 +1,7 @@
 .color-field {
     width:100%;
     background: rgb(95, 224, 192);
-    color: white;
+    color: rgba(255, 255, 255, 0.678);
     display: grid;
     position: relative;
     transition: 0.5s;
@@ -22,13 +22,11 @@
 
 .button-delete {
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.534);
     top: 0px;
     right: 0px;
     height: 100%;
     width: 100px;
     display: grid;
-    cursor: pointer;
     opacity: 0;
     transition: 0.5s;
 }
@@ -42,5 +40,11 @@
     justify-self: center;
     align-self: center;
     font-size: 30px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:black;
+}
+
+.button-delete-text:hover {
+    color:rgb(95, 224, 192);
+    opacity: 1;
 }

@@ -17,6 +17,7 @@ class Slider extends Component {
         <fieldset>
           <label for={"slider-"+this.props.type}>{this.props.sliderText}</label>
           <input
+          // key={this.props.value}
             type="range"
             min="0"
             max="255"
