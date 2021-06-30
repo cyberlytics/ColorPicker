@@ -89,7 +89,7 @@ function ShowSchemes() {
                 {sortContainer}                
             </div>
             <div className="paletteContainer">
-                {getPaginatedData().map(d => (<Palette key={d._id} colors={d.color} avgRating={d.avg_rating}/>))}                
+                {getPaginatedData().map(d => (<Palette key={d._id} colors={d.color} avgRating={d.avg_rating} paletteId={d._id}/>))}                
             </div>
             <div className="paginationContainer">
                 <Pagination count={pageCount} page={currentPage} onChange={handleChange} />                

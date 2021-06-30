@@ -19,7 +19,7 @@ function Palette(props) {
             <ColorField colors={props.colors}/>
         </div>
         <div className="infoContainer">
-            <CommentRating rating={props.avgRating}/>
+            <CommentRating rating={props.avgRating} paletteId={props.paletteId}/>
         </div>
     </div>
     );
