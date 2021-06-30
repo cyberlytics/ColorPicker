@@ -1,11 +1,12 @@
 .color-field {
     width:100%;
     background: rgb(95, 224, 192);
-    color: rgba(255, 255, 255, 0.678);
+    color: rgba(255, 255, 255, 0.479);
     display: grid;
     position: relative;
     transition: 0.5s;
     opacity: 1;
+    font-family: "Sofia", sans-serif;
 }
 
 .color-field:hover {
@@ -31,9 +32,26 @@
     transition: 0.5s;
 }
 
+.button-copy {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100px;
+    display: grid;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+
 .color-field:hover > .button-delete {
     opacity: 1;
     transition: 0.5s;
+}
+
+.color-field:hover > .button-copy {
+    opacity: 1;
+    transition: 0.5;
 }
 
 .button-delete-text {
@@ -45,6 +63,19 @@
 }
 
 .button-delete-text:hover {
+    color:rgb(255, 255, 255);
+    opacity: 1;
+}
+
+.button-copy-text {
+    justify-self: center;
+    align-self: center;
+    font-size: 30px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.678);
+}
+
+.button-copy-text:hover {
     color:rgb(255, 255, 255);
     opacity: 1;
 }
