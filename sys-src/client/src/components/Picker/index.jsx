@@ -16,7 +16,6 @@ class Picker extends Component {
 
   constructor(props) {
     super(props);
-
   }
 
   hexToRGB = (hex) => {
@@ -44,13 +43,19 @@ class Picker extends Component {
   }
 
   render() {
-    // const getNewColor = (handleNewColor) => {
-    //   setNewColor(handleNewColor);
-    //   console.log("create palette:" + handleNewColor);
-    // };
+
+    const handleActiveColor = () => {
+      if(this.props.activeColor >= this.props.colors.length){
+        return this.props.colors[0].slice(1);
+      }
+      else{
+        return this.props.colors[this.props.activeColor].slice(1);
+      }
+    };
 
     return (
       <div class="container-picker">
+        {console.log(this.props.activeColor)}
         {/* <ColorWheel callbackFromParent={getNewColor} /> */}
         <ColorWheel
         colors = { this.props.colors[this.props.activeColor]}
@@ -58,7 +63,7 @@ class Picker extends Component {
         changeColor = { this.props.changeColor }
         />
         <SliderContainer
-          rgbColor={ this.hexToRGB(this.props.colors[this.props.activeColor].slice(1))}
+          rgbColor={ this.hexToRGB(handleActiveColor())}
           rgbToHex={ this.rgbToHex}
           updateHexValue={this.props.updateHexValue}
         />
