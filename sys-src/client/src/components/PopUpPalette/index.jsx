@@ -8,16 +8,21 @@
 
  import React, { Component } from 'react'
  import './index.css'
- import Comment from '../Comment';
+ import CommentContainer from '../CommentContainer'
 
  function PopUpPalette (props)  {
         return (props.trigger) ? (
-            <div className="popup"> 
+            <div className="popup">             
                 <div className="popupInner">
-                    <h3>Hello Popup</h3>
-                    <Comment/>
-                  <button className="btnPopup" id="btnSave">Speichern</button>
-                  <button className="btnPopup" id="btnClose" onClick={() => props.setTrigger(false)}>
+                    <div id="paletteBox">
+                        <h3>Palette</h3>
+                    </div>
+                    <div id="containerBox">
+                        <CommentContainer />                        
+                    </div>
+
+                    <button className="btnPopup" id="btnSave">Speichern</button>
+                    <button className="btnPopup" id="btnClose" onClick={() => props.setTrigger(false)}>
                       Schließen
                     </button>                  
                 </div>
