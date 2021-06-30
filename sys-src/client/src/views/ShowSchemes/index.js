@@ -18,7 +18,7 @@ const url = 'http://localhost:5000/palette/all';
 function ShowSchemes() {
 
     //Bestimmt wie viele Paletten pro Seite angezeigt werden
-    const dataLimit = 4;
+    const dataLimit = 12;
 
     const [palettes, setPalettes] = useState([]);
     const [error, setError] = useState('');
@@ -84,6 +84,7 @@ function ShowSchemes() {
 
     return (
         <>
+            {error}
             <div className="sortingContainer">
                 {sortContainer}                
             </div>
