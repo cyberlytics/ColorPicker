@@ -8,7 +8,7 @@
  */
 import "./index.css";
 
-import React, { Component, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Dialog,
   DialogTitle,
@@ -23,22 +23,15 @@ import { Preview } from "../../components/Preview";
 import Picker from "../../components/Picker/index";
 
 export default function CreatePalette(params) {
-  // state = { colors: ["#8F9C8B", "#FFFFFF"], activeColor: 0, newColor: "" };
 
   //Array contains all created colors
   const [colors, setColors] = useState([
     "#e33a10",
     "#edc71c",
-    // "#1ced26",
-    // "#1cdfed",
-    // "#5b1f5a",
   ]);
 
   //active color which should change
   const [activeColor, setActiveColor] = useState(0);
-
-  //new created color in colorwheel or slider
-  const [newColor, setNewColor] = useState("");
 
   //name of the palette user created
   const [paletteName, setPaletteName] = useState("");
@@ -48,10 +41,6 @@ export default function CreatePalette(params) {
 
   //state handles if name is entered or not
   const [noName, setNoName] = useState();
-
-  const getActiveColor = (handleActiveColor) => {
-    setActiveColor(handleActiveColor);
-  };
 
   //handles the opening and closing of the Save palette dialog. Ensures that paletteName and noName are reset.
   const handleSaveProcess = () => {
@@ -156,6 +145,7 @@ export default function CreatePalette(params) {
       {/**View Content */}
 
       <div className="container-large">
+        {console.log(activeColor)}
         <Picker
           colors={colors}
           activeColor={activeColor}
