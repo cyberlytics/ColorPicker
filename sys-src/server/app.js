@@ -17,6 +17,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //Router
 let palette = require('./routes/paletteRoute')
 let rating = require('./routes/ratingRoute')
+let comment = require('./routes/commentRoute')
 
 //Middleware
 app.use(express.json());
@@ -29,6 +30,7 @@ app.get('/', (req, res) => {
 
 app.use('/palette', palette)
 app.use('/rating', rating)
+app.use('/comment', comment)
 
 app.listen(5000, function() {
     console.log('listening on 5000')

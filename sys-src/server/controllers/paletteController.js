@@ -33,12 +33,12 @@ exports.palette_add = function(req, res) {
     let avgRating = 0;
     let created = Date.now();
 
-    let newTest = new paletteModel({name:name,color:color,avg_rating:avgRating,created:created})
+    let newPalette = new paletteModel({name:name,color:color,avg_rating:avgRating,created:created})
 
-    newTest.save(function (err) {
+    newPalette.save(function (err) {
         if (err) return console.error(err);
         console.log("Document saved to collection");
-        res.json(newTest)
+        res.json(newPalette)
       });
 };
 
