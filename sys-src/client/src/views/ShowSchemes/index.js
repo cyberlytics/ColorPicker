@@ -11,7 +11,6 @@ import Pagination from '@material-ui/lab/Pagination';
 import "./schemes.css"
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import Comment from '../../components/Comment/index.jsx';
 import PopUpPalette from '../../components/PopUpPalette/index.jsx';
 
 const url = 'http://localhost:5000/palette/all';
@@ -98,7 +97,7 @@ function ShowSchemes() {
 
             <button onClick={()=> setBtnPopup(true) }>popup</button>
             <PopUpPalette trigger={btnPopup} setTrigger={setBtnPopup}>
-                <h3>WTF ?!?!? wo ist das </h3>
+                
             </PopUpPalette>
         </>
     );
