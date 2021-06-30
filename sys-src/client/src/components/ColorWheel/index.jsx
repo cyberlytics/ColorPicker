@@ -9,18 +9,18 @@ import "./index.css";
 
   constructor(props){
     super(props);
-
   }
 
+  colorPicker;
+
   componentDidMount() {
-    var colorPicker = new iro.ColorPicker(this.el, {
+    this.colorPicker = new iro.ColorPicker(this.el, {
       // Set the size of the color picker
       width: 350,
       // Set the initial color to pure red
       color: this.props.colors,
     });
-
-    colorPicker.on("color:change", this.props.changeColor);
+    this.colorPicker.on("color:change", this.props.changeColor);
   };
 
 
