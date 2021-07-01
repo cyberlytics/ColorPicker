@@ -6,4 +6,10 @@
 
 .item{
     flex-grow: 1;
+    transition: 0.5s;
+}
+
+.item:hover {
+    transition: 0.5s;
+    opacity: 0.7;
 }

@@ -29,11 +29,11 @@ const Subtitle = styled.p`
 `
 
 const Header = styled.div`
-   padding: 4em;
+   padding: 3em;
    background-color: ${props => props.backgroundColor}
 `
 const Container = styled.div`
-   padding: 4em;
+   padding: 3em;
    background-color: ${props => props.backgroundColor}
 `
 

@@ -1,24 +1,24 @@
 .color-field {
     width:100%;
-    background: rgb(95, 224, 192);
     color: rgba(255, 255, 255, 0.479);
     display: grid;
     position: relative;
-    transition: 0.5s;
-    opacity: 1;
-    font-family: "Sofia", sans-serif;
+
+    -webkit-transition: opacity 0.5s ease-out;
+    -moz-transition: opacity 0.5s ease-out;
+    -o-transition: opacity 0.5s ease-out;
+    transition: opacity 0.5s ease-out;
 }
 
 .color-field:hover {
-    transition: 0.5s;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .color-field-text {
     justify-self: center;
     align-self: center;
-    font-size: 30px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-size: 2.5em;
+    /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif */
 }
 
 .button-delete {
@@ -43,7 +43,6 @@
     transition: 0.5s;
 }
 
-
 .color-field:hover > .button-delete {
     opacity: 1;
     transition: 0.5s;
@@ -59,11 +58,10 @@
     align-self: center;
     font-size: 30px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgba(255, 255, 255, 0.678);
 }
 
 .button-delete-text:hover {
-    color:rgb(255, 255, 255);
+    color:rgb(255, 255, 255) !important;
     opacity: 1;
 }
 
@@ -72,10 +70,9 @@
     align-self: center;
     font-size: 30px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgba(255, 255, 255, 0.678);
 }
 
 .button-copy-text:hover {
-    color:rgb(255, 255, 255);
+    color:rgb(255, 255, 255) !important;
     opacity: 1;
 }
