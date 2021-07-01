@@ -8,7 +8,7 @@ import "./index.css";
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
-
+import tinycolor from "tinycolor2";
 class ColorField extends Component {
   render() {
     const iconTrash = <FontAwesomeIcon icon={faTrashAlt}/>;
@@ -21,7 +21,7 @@ class ColorField extends Component {
         <div className="button-copy">
           <p className="button-copy-text">{iconCopy}</p>
         </div>
-        <span className="color-field-text">{ this.props.colors[this.props.number] }</span>
+        <span className="color-field-text" style={ tinycolor(this.props.colors[this.props.number]).isDark() ? { color: 'white' } : { color:'black' } }>{ this.props.colors[this.props.number] }</span>
       </div>
     );
   }
