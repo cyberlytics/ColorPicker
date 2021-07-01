@@ -89,7 +89,7 @@ function ShowSchemes() {
                 {sortContainer}                
             </div>
             <div className="paletteContainer">
-                {getPaginatedData().map(d => (<Palette key={d._id} colors={d.color} avgRating={d.avg_rating} paletteId={d._id}/>))}                
+                {getPaginatedData().map(d => (<Palette key={d._id} colors={d.color} avgRating={d.avg_rating} paletteId={d._id} />))}                
             </div>
             <div className="paginationContainer">
                 <Pagination count={pageCount} page={currentPage} onChange={handleChange} />                
@@ -97,7 +97,7 @@ function ShowSchemes() {
 
 
             <button onClick={()=> setBtnPopup(true) }>popup</button>
-            <PopUpPalette trigger={btnPopup} setTrigger={setBtnPopup}>
+            <PopUpPalette trigger={btnPopup} setTrigger={setBtnPopup} paletteID={"werwe"}>
                 
             </PopUpPalette>
         </>

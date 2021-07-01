@@ -15,12 +15,12 @@
  class CommentContainer extends Component 
 {
 
+  commentText = "";
+
   addComment=(text) =>
   {
-
-
-   
-
+    this.commentText=text; 
+    console.log("add "+text);
   }
 
 
@@ -35,7 +35,7 @@
                 <AddComment addCommentChild={this.addComment}/>
               </div>
               <div id="commentBox">
-                <Comment text = "first"/>
+                <Comment text = {this.commentText}/>
               </div>
           </div>
         );

@@ -11,7 +11,7 @@ import React, { Component } from 'react';
 function Comment (props) 
 {
     
-      return (props.text !== "first")?(
+      return (props.text !== "")?(
         <div>
          
             <h3>Kommentare</h3>
