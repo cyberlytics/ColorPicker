@@ -12,10 +12,12 @@ class AddColorButton extends Component {
   render() {
     const iconAdd = <FontAwesomeIcon icon={faPlus} />;
     return (
+      // Button to add a new color
       <div
         className="button-add-color"
         onClick={() => this.props.handleAddChild()}
       >
+        {/* Add-Icon */}
         <div className="button-add-color-text">{iconAdd}</div>
       </div>
     );

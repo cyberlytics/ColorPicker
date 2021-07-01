@@ -15,13 +15,18 @@ class ColorField extends Component {
     const iconTrash = <FontAwesomeIcon icon={faTrashAlt}/>;
     const iconCopy = <FontAwesomeIcon icon={faCopy}/>;
     return (
+      // Tiles that show the colors of the palette
+      // Tinycolor used to check if the color is too dark for the font to show up
       <div className="color-field font-roboto hover" style={{background: this.props.colors[this.props.number]}} onClick={ ()=>this.props.changeActiveColor(this.props.number) }>
+        {/* Button that let's you delete a single color */}
         <div className="button-delete">
           <p className="button-delete-text" style={ tinycolor(this.props.colors[this.props.number]).isDark() ? { color: '#ffffff80' } : { color:'#00000080' } } onClick={()=>this.props.deleteColor(this.props.number)}>{iconTrash}</p>
         </div>
+        {/* Button that let's you copy the HEX-Code */}
         <div className="button-copy">
           <p className="button-copy-text" style={ tinycolor(this.props.colors[this.props.number]).isDark() ? { color: '#ffffff80' } : { color:'#00000080' } }>{iconCopy}</p> 
         </div>
+        {/* HEX-Code of one color */}
         <span className="color-field-text" style={ tinycolor(this.props.colors[this.props.number]).isDark() ? { color: '#ffffff80' } : { color:'#00000080' } }>{ this.props.colors[this.props.number] }</span>
       </div>
     );
