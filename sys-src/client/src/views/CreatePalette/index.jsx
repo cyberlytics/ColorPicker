@@ -1,14 +1,6 @@
-/**
- * Enthält später die View die es ermöglicht eine
- * Palette zu erstellen.
- * Enthält:
- *  -Picker
- *  -Choose
- *  -Preview
- */
 import "./index.css";
 
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import {
   Dialog,
   DialogTitle,
@@ -22,7 +14,9 @@ import { Button } from "../../components/Button";
 import { Preview } from "../../components/Preview";
 import Picker from "../../components/Picker/index";
 
+//view that enables user to create their own palette and save it to the database
 export default function CreatePalette(params) {
+
   //Array contains all created colors
   const [colors, setColors] = useState(["#e33a10", "#edc71c"]);
 
@@ -58,9 +52,7 @@ export default function CreatePalette(params) {
         },
         body: JSON.stringify({ name: saveName, color: saveColor }),
       }).then(() => {
-        setPaletteName("");
-        setVisible(!visible);
-        setNoName(false);
+          handleSaveProcess()
       });
     }
   };
@@ -153,8 +145,8 @@ export default function CreatePalette(params) {
           </DialogActions>
         </DialogContent>
       </Dialog>
-      {/**View Content */}
 
+      {/**View Content */}
       <div className="container-large">
         <Picker
           colors={colors}
