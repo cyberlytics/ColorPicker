@@ -148,22 +148,22 @@ export default function CreatePalette(params) {
 
       {/**View Content */}
       <div className="container-large">
-        <Picker
-          colors={colors}
-          activeColor={activeColor}
-          updateHexValue={updateHexValue}
-          changeColor={changeColor}
-        />
-        <ColorContainer
-          colors={colors}
-          handleAdd={handleAdd}
-          changeActiveColor={changeActiveColor}
-          deleteColor={deleteColor}
-        />
+          <Picker
+            colors={colors}
+            activeColor={activeColor}
+            updateHexValue={updateHexValue}
+            changeColor={changeColor}
+          />
+          <ColorContainer
+            colors={colors}
+            handleAdd={handleAdd}
+            changeActiveColor={changeActiveColor}
+            deleteColor={deleteColor}
+          />
       </div>
       <div className="container-small">
         <div className="container-preview">
-          <Preview colors={colors} />
+          {/* <Preview colors={colors} /> */}
         </div>
         <div className="container-save-button">
           <div className="button-left-align">

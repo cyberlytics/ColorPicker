@@ -1,11 +1,11 @@
 .MuiTabs-flexContainer {
-    background-color: rgb(238, 255, 251);
+    background-color: #afb4ff;
 }
 
 .MuiTab-wrapper {
-    color: black;
+    color: rgb(49, 49, 49);
 }
 
 .PrivateTabIndicator-colorSecondary-4  {
-    background-color: rgb(95, 67, 255) !important;
+    background-color: rgb(61, 28, 253) !important;
 }

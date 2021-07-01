@@ -15,7 +15,7 @@ class ColorField extends Component {
     const iconTrash = <FontAwesomeIcon icon={faTrashAlt}/>;
     const iconCopy = <FontAwesomeIcon icon={faCopy}/>;
     return (
-      <div className="color-field font-roboto" style={{background: this.props.colors[this.props.number]}} onClick={ ()=>this.props.changeActiveColor(this.props.number) }>
+      <div className="color-field font-roboto hover" style={{background: this.props.colors[this.props.number]}} onClick={ ()=>this.props.changeActiveColor(this.props.number) }>
         <div className="button-delete">
           <p className="button-delete-text" style={ tinycolor(this.props.colors[this.props.number]).isDark() ? { color: '#ffffff80' } : { color:'#00000080' } } onClick={()=>this.props.deleteColor(this.props.number)}>{iconTrash}</p>
         </div>
