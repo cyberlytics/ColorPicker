@@ -10,6 +10,6 @@ Style-File for Title Component
     display: flex;
     align-items: center;
     text-align: center;
-    color: black;
+    color: rgb(49, 49, 49);
     margin: 2px;
 }

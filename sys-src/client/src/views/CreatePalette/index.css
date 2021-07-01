@@ -15,8 +15,7 @@
     grid-area: container-small;
     display: grid; 
     grid-template-columns: 1fr; 
-    grid-template-rows: 1.9fr 0.2fr; 
-    gap: 0px 0px; 
+    grid-template-rows: 1.8fr 0.2fr; 
     grid-template-areas: 
     "container-preview" 
     "container-save-button";
@@ -33,17 +32,24 @@
 
 .container-save-button {
     grid-area: container-save-button;
-    background-color: rgb(236, 236, 236);
-    padding-top: 2%;
-    padding: 3%;
+    background-color: #ececec;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:    "button-left-align button-right-align";
+    height: 100%;
 }
 
 .button-right-align {
-    float: right;
+    grid-area: button-right-align;
+    justify-self: center;
+    align-self: center;
 }
 
 .button-left-align {
-    float: left;
+    grid-area: button-left-align;
+    justify-self: center;
+    align-self: center;
 }
 
 .container-large { 
@@ -51,7 +57,6 @@
     display: grid; 
     grid-template-columns: 1.5fr 1fr; 
     grid-template-rows: 1fr; 
-    gap: 0px 0px; 
     grid-template-areas: 
     "container-picker container-color-container";
     background-color: rgb(236, 236, 236);
@@ -69,7 +74,7 @@
     "container-color-wheel"
     "container-slider";
     justify-items: center;
-    margin-top: 50px;
+    margin-top: 70px;
 }
 
 .container-color-wheel {
@@ -83,3 +88,4 @@
 .container-color-container {
     grid-area: container-color-container;
 }
+

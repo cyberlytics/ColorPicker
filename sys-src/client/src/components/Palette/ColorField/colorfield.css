@@ -6,10 +6,21 @@
 
 .item{
     flex-grow: 1;
-    transition: 0.5s;
 }
 
 .item:hover {
-    transition: 0.5s;
-    opacity: 0.7;
+    opacity: 0.6;
+}
+
+.overview-tile-single-color {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.719);
+    opacity: 0;
+    display: grid;
+    position: relative;
+}
+
+.item:hover > .overview-tile-single-color {
+    opacity: 0.5;
 }

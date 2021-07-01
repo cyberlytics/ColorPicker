@@ -1,9 +1,3 @@
-/**
- * Die Vorschauwebsite.
- * Enthält:
- *  - tbc...
- */
-
  import React, { useState, useEffect } from 'react';
  import styled from 'styled-components';
  import { ReactComponent as ReactLogo } from "././logo.svg"; 

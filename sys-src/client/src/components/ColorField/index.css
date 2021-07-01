@@ -3,7 +3,9 @@
     color: rgba(255, 255, 255, 0.479);
     display: grid;
     position: relative;
+}
 
+.hover {
     -webkit-transition: opacity 0.5s ease-out;
     -moz-transition: opacity 0.5s ease-out;
     -o-transition: opacity 0.5s ease-out;

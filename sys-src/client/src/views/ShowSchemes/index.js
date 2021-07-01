@@ -85,7 +85,7 @@ function ShowSchemes() {
     return (
         <>
             {error}
-            <div className="sortingContainer">
+            <div className="sortingContainer font-montserrat">
                 {sortContainer}                
             </div>
             <div className="paletteContainer">
