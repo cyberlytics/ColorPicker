@@ -23,12 +23,8 @@ import { Preview } from "../../components/Preview";
 import Picker from "../../components/Picker/index";
 
 export default function CreatePalette(params) {
-
   //Array contains all created colors
-  const [colors, setColors] = useState([
-    "#e33a10",
-    "#edc71c",
-  ]);
+  const [colors, setColors] = useState(["#e33a10", "#edc71c"]);
 
   //active color which should change
   const [activeColor, setActiveColor] = useState(0);
@@ -68,7 +64,7 @@ export default function CreatePalette(params) {
       });
     }
   };
-  
+
   const updateHexValue = (hexValue) => {
     let colorss = [...colors];
     colorss[activeColor] = hexValue;
@@ -79,10 +75,10 @@ export default function CreatePalette(params) {
     let colorss = [...colors];
     colorss[activeColor] = color.hexString;
     setColors(colorss);
-  }
+  };
 
   const handleAdd = () => {
-    if (colors.length < 5 ) {
+    if (colors.length < 5) {
       let colorss = [...colors];
       colorss.push(getRandomColor());
       setColors([...colorss]);
@@ -90,40 +86,36 @@ export default function CreatePalette(params) {
   };
 
   const getRandomColor = () => {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
+    var letters = "0123456789abcdef";
+    var color = "#";
     for (var i = 0; i < 6; i++) {
       color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
-  }
+  };
 
   const changeActiveColor = (number) => {
     setActiveColor(number);
-  }
+  };
 
   const deleteColor = (number) => {
-
     changeActiveColor(0);
-    
-    if (colors.length > 2 ) {
- 
+
+    if (colors.length > 2) {
       let colorss = [...colors];
-      colorss.splice(number,1);
+      colorss.splice(number, 1);
       setColors([...colorss]);
-    }
-    else (console.log("Immer Mind. 2 Colors"));
-  }
+    } else console.log("Immer Mind. 2 Colors");
+  };
 
   const createRandomPalette = () => {
-    
-    let colorss=[];
-    for(var i = 0; i < (Math.floor(Math.random() * (5 - 2 +1)) + 2); i++) {
+    let colorss = [];
+    for (var i = 0; i < Math.floor(Math.random() * (5 - 2 + 1)) + 2; i++) {
       colorss.push(getRandomColor());
     }
     setActiveColor(0);
     setColors(colorss);
-  }
+  };
 
   return (
     <div className="container-create-palette">
@@ -168,26 +160,32 @@ export default function CreatePalette(params) {
           colors={colors}
           activeColor={activeColor}
           updateHexValue={updateHexValue}
-          changeColor = {changeColor}
+          changeColor={changeColor}
         />
         <ColorContainer
-        colors={colors}
-        handleAdd={handleAdd}
-        changeActiveColor={changeActiveColor}
-        deleteColor={deleteColor}
+          colors={colors}
+          handleAdd={handleAdd}
+          changeActiveColor={changeActiveColor}
+          deleteColor={deleteColor}
         />
       </div>
       <div className="container-small">
-        <Preview colors={colors} />
+        <div className="container-preview">
+          <Preview colors={colors} />
+        </div>
         <div className="container-save-button">
-        <Button
-            title={"Random Palette"}
-            onClick={()=>createRandomPalette()}
-          ></Button>
-          <Button
-            title={"Palette Speichern"}
-            onClick={handleSaveProcess}
-          ></Button>
+          <div className="button-left-align">
+            <Button
+              title={"Random Palette"}
+              onClick={() => createRandomPalette()}
+            ></Button>
+          </div>
+          <div className="button-right-align">
+            <Button
+              title={"Palette Speichern"}
+              onClick={handleSaveProcess}
+            ></Button>
+          </div>
         </div>
       </div>
     </div>

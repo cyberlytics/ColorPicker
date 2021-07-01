@@ -10,9 +10,9 @@ output{
 label, output{
     padding: 2px 9px;
     border-radius: 30px;
-    font-family: 'Roboto', sans-serif;
     color: rgb(255, 255, 255);
     font-size: 1.7em;
+    font-weight: 500;
 }
 
 label[for=slider-red], output[for=slider-red]{

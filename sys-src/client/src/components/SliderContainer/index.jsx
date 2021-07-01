@@ -36,7 +36,7 @@ class SliderContainer extends Component {
 
   render() {
     return (
-      <div class="container-slider">
+      <div class="container-slider font-IBM">
         <Slider
           value={this.props.rgbColor[0]}
           handleChange={this.handleChange}
