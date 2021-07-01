@@ -20,6 +20,23 @@ class AddComment extends Component {
     com_text = "";
     com_text_add = "first!!!";
     com_arr = ['123','asd'];
+    palette_ID ='asdfasasf'
+
+    submitComment = (com_text, palette_ID) => 
+    {
+      fetch("http://localhost:5000/comment/add", 
+      {
+        method: "POST",
+        headers: 
+        {
+          "Content-Type": "application/json; charset=utf-8",
+        },
+        body: JSON.stringify({ comment: this.com_text, paletteID: this.palette_ID }),
+      }).then(() => {
+        //HIER KOMMT WAS DU NACH DEM HINZUFÜGEN MACHEN WILLST (WENN ES WAS ZU TUN GIBT)
+      });
+    };
+  
 
     render() {
         return (
@@ -50,6 +67,8 @@ class AddComment extends Component {
       handleChange(e) 
       {
         this.setState({ text: e.target.value });
+        this.com_text=e.target.value;
+        console.log("" + this.com_text);
       }
 
       handleSubmit(e) 

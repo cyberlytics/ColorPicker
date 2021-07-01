@@ -15,7 +15,7 @@
             <div className="popup">             
                 <div className="popupInner">
                     <div id="paletteBox">
-                        <h3>Palette</h3>
+                        <h3>Palette ID {props.paletteID}</h3>
                     </div>
                     <div id="containerBox">
                         <CommentContainer />                        
