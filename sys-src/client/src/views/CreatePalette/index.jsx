@@ -84,10 +84,19 @@ export default function CreatePalette(params) {
   const handleAdd = () => {
     if (colors.length < 5 ) {
       let colorss = [...colors];
-      colorss.push("#ABBBFF");
+      colorss.push(getRandomColor());
       setColors([...colorss]);
     }
   };
+
+  const getRandomColor = () => {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 
   const changeActiveColor = (number) => {
     setActiveColor(number);
@@ -104,6 +113,16 @@ export default function CreatePalette(params) {
       setColors([...colorss]);
     }
     else (console.log("Immer Mind. 2 Colors"));
+  }
+
+  const createRandomPalette = () => {
+    
+    let colorss=[];
+    for(var i = 0; i < (Math.floor(Math.random() * (5 - 2 +1)) + 2); i++) {
+      colorss.push(getRandomColor());
+    }
+    setActiveColor(0);
+    setColors(colorss);
   }
 
   return (
@@ -145,7 +164,6 @@ export default function CreatePalette(params) {
       {/**View Content */}
 
       <div className="container-large">
-        {console.log(activeColor)}
         <Picker
           colors={colors}
           activeColor={activeColor}
@@ -162,6 +180,10 @@ export default function CreatePalette(params) {
       <div className="container-small">
         <Preview colors={colors} />
         <div className="container-save-button">
+        <Button
+            title={"Random Palette"}
+            onClick={()=>createRandomPalette()}
+          ></Button>
           <Button
             title={"Palette Speichern"}
             onClick={handleSaveProcess}
