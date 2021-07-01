@@ -23,12 +23,9 @@ function Palette(props) {
         <div className="colorContainer" 
             onClick={() => setBtnPopup(true) }>
             <ColorField colors={props.colors}/>
-            
-                
-           
         </div>
         <div className="infoContainer">
-            <CommentRating rating={props.avgRating} paletteId={props.paletteId}/>
+            <CommentRating rating={props.avgRating} paletteID={props.paletteId}/>
         </div>
         <PopUpPalette trigger={btnPopup} setTrigger={setBtnPopup} paletteID={props.paletteId}/>
     </div>
