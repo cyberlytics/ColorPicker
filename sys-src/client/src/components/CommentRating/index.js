@@ -5,31 +5,28 @@
  */
 
 import "./commentRating.css"
-
 import CommentsIcon from '@material-ui/icons/Message';
 import Rating from '@material-ui/lab/Rating';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+
 import { withStyles } from '@material-ui/core/styles';
 
 function CommentRating(props) {
 
     const StyledRating = withStyles({
         iconFilled: {
-            color: '#ffd675',
-        },
-        iconHover: {
             color: '#ffd700',
-        }
+        },
     })(Rating);
-    const submitRating = (saveRating, savePaletteId,) => {
+
+    const submitRating = (saveRating, savePalette) => {
         console.log(saveRating);
-        console.log(savePaletteId);
+        console.log('Id to save rating for: ' + savePalette);
           fetch("http://localhost:5000/rating/add", {
             method: "POST",
             headers: {
               "Content-Type": "application/json; charset=utf-8",
             },
-            body: JSON.stringify({ rating: saveRating, palette_id: savePaletteId }),
+            body: JSON.stringify({ rating: saveRating, palette_id: savePalette }),
           }).then(() => {
             console.log('Rating value changed successfully!');
           });
@@ -38,7 +35,8 @@ function CommentRating(props) {
     return (
     <div className="commentRating">
         <CommentsIcon style={{color:"#808080"}}/>
-        <StyledRating name="half-rating" value={props.rating} size="small" defaultValue={props.rating} onChange={(event, newValue) => submitRating(newValue, props.paletteId)} icon={<StarBorderIcon fontSize="inherit" />} />
+        {console.log(props.rating)}
+        <StyledRating name={props.paletteID} value={props.rating} size="small" defaultValue={0.0} onChange={(event, newValue) => submitRating(newValue, props.paletteID)}  />
     </div>
     );
 }
