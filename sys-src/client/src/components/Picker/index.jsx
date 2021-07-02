@@ -55,12 +55,11 @@ class Picker extends Component {
 
     return (
       <div class="container-picker">
-        {console.log(this.props.activeColor)}
         {/* <ColorWheel callbackFromParent={getNewColor} /> */}
         <ColorWheel
-        colors = { this.props.colors[this.props.activeColor]}
+        colors = { this.props.colors}
         updateHexValue={this.props.updateHexValue}
-        changeColor = { this.props.changeColor }
+        activeColor = {this.props.activeColor}
         />
         <SliderContainer
           rgbColor={ this.hexToRGB(handleActiveColor())}

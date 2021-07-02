@@ -1,6 +1,6 @@
 import "./index.css";
 
-import React, {useState } from "react";
+import React, {useState, useEffect } from "react";
 import {
   Dialog,
   DialogTitle,
@@ -18,7 +18,7 @@ import Picker from "../../components/Picker/index";
 export default function CreatePalette(params) {
 
   //Array contains all created colors
-  const [colors, setColors] = useState(["#e33a10", "#edc71c"]);
+  const [colors, setColors] = useState(["#ffffff", "#ffffff"]);
 
   //active color which should change
   const [activeColor, setActiveColor] = useState(0);
@@ -32,12 +32,29 @@ export default function CreatePalette(params) {
   //state handles if name is entered or not
   const [noName, setNoName] = useState();
 
+  //
+  const [tooMuchColors, setTooMuchColors] = useState(false);
+
+  //
+  const [tooLessColors, setTooLessColors] = useState(false);
+
+  const handleTooMuchColors = () => {
+    setTooMuchColors(!tooMuchColors);
+  }
+
+  const handleTooLessColors = () => {
+    setTooLessColors(!tooLessColors);
+  }
+
+  useEffect(() => {createRandomPalette(); }, [])
+
   //handles the opening and closing of the Save palette dialog. Ensures that paletteName and noName are reset.
   const handleSaveProcess = () => {
     setVisible(!visible);
     setNoName(false);
     setPaletteName("");
   };
+
 
   const submitPalette = (saveName, saveColor) => {
     //before palette can be saved, it is checked if user entered a name or not, when not saving is not possible and an error message occured until user enters a name.
@@ -63,18 +80,13 @@ export default function CreatePalette(params) {
     setColors(colorss);
   };
 
-  const changeColor = (color) => {
-    let colorss = [...colors];
-    colorss[activeColor] = color.hexString;
-    setColors(colorss);
-  };
-
   const handleAdd = () => {
     if (colors.length < 5) {
       let colorss = [...colors];
       colorss.push(getRandomColor());
       setColors([...colorss]);
     }
+    else handleTooMuchColors();
   };
 
   const getRandomColor = () => {
@@ -97,7 +109,7 @@ export default function CreatePalette(params) {
       let colorss = [...colors];
       colorss.splice(number, 1);
       setColors([...colorss]);
-    } else console.log("Immer Mind. 2 Colors");
+    } else handleTooLessColors();
   };
 
   const createRandomPalette = () => {
@@ -147,13 +159,38 @@ export default function CreatePalette(params) {
         </DialogContent>
       </Dialog>
 
+      {/**Too much Colors Dialog */}
+      <Dialog open={tooMuchColors} onClose={handleTooMuchColors}>
+        <DialogTitle>Sie haben bereits 5 Farben.</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Es ist nicht möglich eine Palette mit mehr als 5 Farben zu erstellen.
+          </DialogContentText>
+          <DialogActions>
+            <Button title="Ok" onClick={handleTooMuchColors} />
+          </DialogActions>
+        </DialogContent>
+      </Dialog>
+
+      {/**Too less colors Dialog */}
+      <Dialog open={tooLessColors} onClose={handleTooLessColors}>
+        <DialogTitle>Es müssen mindestens 2 Farben vorhanden sein.</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Es ist nicht möglich eine Palette mit weniger als 2 Farben zu erstellen.
+          </DialogContentText>
+          <DialogActions>
+            <Button title="Ok" onClick={handleTooLessColors} />
+          </DialogActions>
+        </DialogContent>
+      </Dialog>
+
       {/**View Content */}
       <div className="container-large">
           <Picker
             colors={colors}
             activeColor={activeColor}
             updateHexValue={updateHexValue}
-            changeColor={changeColor}
           />
           <ColorContainer
             colors={colors}
