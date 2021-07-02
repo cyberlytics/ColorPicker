@@ -19,7 +19,7 @@ function Palette(props) {
         <div className="infoContainer">
             <CommentRating rating={props.avgRating} paletteID={props.paletteId}/>
         </div>
-        <PopUpPalette trigger={btnPopup} setTrigger={setBtnPopup} paletteID={props.paletteId}/>
+        <PopUpPalette trigger={btnPopup} setTrigger={setBtnPopup} paletteID={props.paletteId}  colors={props.colors}/>
     </div>
     );
 }

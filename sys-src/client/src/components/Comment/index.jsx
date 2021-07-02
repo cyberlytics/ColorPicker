@@ -6,21 +6,35 @@
 
 import React, { Component } from 'react';
 
+const url = 'http://localhost:5000/comment/all/';
+
 
 
 function Comment (props) 
 {
-    
-      return (props.text !== "")?(
+   const url_all = url + props.paletteID;
+   const test = fetch(url_all)
+                  .then((response) => 
+                  {
+                    if (response.ok) return response.json();
+                    throw console.log("something went wrong while requesting posts");
+                  })
+   
+   console.log(test);
+
+
+
+      return (
         <div>
          
             <h3>Kommentare</h3>
-            <text>
-              {props.text}
-            </text>
+              {}
+              <br/>test
+                    {
+                    }
           
         </div>
-      ):"";
+      );
 }
 
 export default Comment;
