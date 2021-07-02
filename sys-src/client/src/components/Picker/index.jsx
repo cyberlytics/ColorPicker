@@ -59,7 +59,6 @@ class Picker extends Component {
         <ColorWheel
         colors = { this.props.colors}
         updateHexValue={this.props.updateHexValue}
-        changeColor = { this.props.changeColor }
         activeColor = {this.props.activeColor}
         />
         <SliderContainer
