@@ -23,6 +23,7 @@ class ColorContainer extends Component {
           colors={this.props.colors}
           number={i}
           deleteColor={this.props.deleteColor}
+          activeColor={this.props.activeColor}
         ></ColorField>
       );
     }

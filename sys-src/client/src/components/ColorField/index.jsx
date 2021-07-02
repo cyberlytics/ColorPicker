@@ -19,15 +19,15 @@ class ColorField extends Component {
       // Tinycolor used to check if the color is too dark for the font to show up
       <div className="color-field font-roboto hover" style={{background: this.props.colors[this.props.number]}} onClick={ ()=>this.props.changeActiveColor(this.props.number) }>
         {/* Button that let's you delete a single color */}
-        <div className="button-delete">
-          <p className="button-delete-text" style={ tinycolor(this.props.colors[this.props.number]).isDark() ? { color: '#ffffff80' } : { color:'#00000080' } } onClick={()=>this.props.deleteColor(this.props.number)}>{iconTrash}</p>
+        <div className="icon-position button-delete">
+          <p className={"icon-text " + (tinycolor(this.props.colors[this.props.number]).isDark() ? "light icon-text-light" : "dark icon-text-dark") } onClick={()=>this.props.deleteColor(this.props.number)} >{iconTrash}</p>
         </div>
         {/* Button that let's you copy the HEX-Code */}
-        <div className="button-copy">
-          <p className="button-copy-text" style={ tinycolor(this.props.colors[this.props.number]).isDark() ? { color: '#ffffff80' } : { color:'#00000080' } }>{iconCopy}</p> 
+        <div className="icon-position button-copy">
+          <p className={"icon-text " + (tinycolor(this.props.colors[this.props.number]).isDark() ? "light icon-text-light" : "dark icon-text-dark") } onClick={()=>{navigator.clipboard.writeText(this.props.colors[this.props.number])}} >{iconCopy}</p>
         </div>
         {/* HEX-Code of one color */}
-        <span className="color-field-text" style={ tinycolor(this.props.colors[this.props.number]).isDark() ? { color: '#ffffff80' } : { color:'#00000080' } }>{ this.props.colors[this.props.number] }</span>
+        <span className={"color-field-text " + (tinycolor(this.props.colors[this.props.number]).isDark() ? "light" : "dark") + (this.props.activeColor == this.props.number ? " active" : "")}>{ this.props.colors[this.props.number] }</span>
       </div>
     );
   }

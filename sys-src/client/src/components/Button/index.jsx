@@ -13,7 +13,7 @@ export function Button(props) {
 
   return (
     <button
-      className="buttonStyle"
+      className="buttonStyle shadow"
       type="button"
       onClick={onClick}
     >

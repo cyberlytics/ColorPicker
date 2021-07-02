@@ -186,7 +186,7 @@ export default function CreatePalette(params) {
       </Dialog>
 
       {/**View Content */}
-      <div className="container-large">
+      <div className="container-large shadow">
           <Picker
             colors={colors}
             activeColor={activeColor}
@@ -197,9 +197,10 @@ export default function CreatePalette(params) {
             handleAdd={handleAdd}
             changeActiveColor={changeActiveColor}
             deleteColor={deleteColor}
+            activeColor={activeColor}
           />
       </div>
-      <div className="container-small">
+      <div className="container-small shadow">
         <div className="container-preview">
           <div><Preview colors={colors} /></div>
         </div>

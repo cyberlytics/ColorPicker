@@ -14,11 +14,12 @@ function ColorField(props) {
           style={{ backgroundColor: d }}
         >
           <div className="overview-tile-single-color">
-            <div className="button-copy">
-              <p className="button-copy-text">{iconCopy}</p>
+            {/* Copy button to copy the hex value to clipboard */}
+            <div className="icon-position show button-copy" style={ tinycolor(d).isDark() ? { color: '#ffffff80' } : { color:'#00000080' } }>
+              <p className={"icon-text " + (tinycolor(d).isDark() ? "light icon-text-light" : "dark icon-text-dark") } onClick={()=>{navigator.clipboard.writeText(d)}}>{iconCopy}</p>
             </div>
-            <span className="color-field-text">
-              #TEST00
+            <span className="color-field-text palette-text" style={ tinycolor(d).isDark() ? { color: '#ffffff80' } : { color:'#00000080' } }>   
+            {d}           
             </span>
           </div>
         </div>
