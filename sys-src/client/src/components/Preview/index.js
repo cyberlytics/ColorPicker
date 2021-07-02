@@ -1,4 +1,4 @@
- import React, { useState, useEffect } from 'react';
+ import React from 'react';
  import styled from 'styled-components';
  import { ReactComponent as ReactLogo } from "././logo.svg"; 
 
@@ -114,6 +114,4 @@ const Logo = styled(ReactLogo)`
          </div>
       );
    }
-
-     
-   }
+}

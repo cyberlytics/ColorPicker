@@ -1,5 +1,5 @@
 /**
- * enables a action which is given by the parent component if user clicks the component
+ * enables an action, which is given by the parent component, if user clicks the component
  */
 
 import React from "react";
@@ -7,6 +7,7 @@ import { Title } from "../Title";
 import "./index.css";
 
 export function Button(props) {
+  
     //get values for title and onClick from props
   const { title, onClick } = props;
 

@@ -163,7 +163,7 @@ export default function CreatePalette(params) {
       </div>
       <div className="container-small">
         <div className="container-preview">
-          {/* <Preview colors={colors} /> */}
+          <Preview colors={colors} />
         </div>
         <div className="container-save-button">
           <div className="button-left-align">
