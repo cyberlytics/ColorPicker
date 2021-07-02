@@ -31,6 +31,7 @@ class SliderContainer extends Component {
     if (type === "blue") {
       newHexValue = this.props.rgbToHex(this.props.rgbColor[0] , this.props.rgbColor[1], value);
     }
+    console.log(newHexValue);
     this.props.updateHexValue(newHexValue);
   };
 
