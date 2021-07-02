@@ -1,7 +1,7 @@
 import React from "react";
 
 //Components
-import TabMenu from "./components/TabMenu"
+import TabMenu from "./parts/TabMenu"
 
 
 
