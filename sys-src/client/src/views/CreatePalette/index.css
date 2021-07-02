@@ -31,6 +31,7 @@
 .container-preview {
     grid-area: container-preview;
     background-color: white;
+    overflow: hidden;
 }
 
 /* container including buttons for saving the palette and creating a random palette */
