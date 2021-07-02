@@ -5,6 +5,10 @@
     position: relative;
 }
 
+.active {
+    font-weight: 700;
+}
+
 .hover {
     -webkit-transition: opacity 0.5s ease-out;
     -moz-transition: opacity 0.5s ease-out;
@@ -20,29 +24,24 @@
     justify-self: center;
     align-self: center;
     font-size: 2.5em;
-    /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif */
+}
+
+.icon-position {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 100px;
+    display: grid;
+    opacity: 0;
+    transition: 0.5s;
 }
 
 .button-delete {
-    position: absolute;
-    top: 0px;
     right: 0px;
-    height: 100%;
-    width: 100px;
-    display: grid;
-    opacity: 0;
-    transition: 0.5s;
 }
 
 .button-copy {
-    position: absolute;
-    top: 0px;
     left: 0px;
-    height: 100%;
-    width: 100px;
-    display: grid;
-    opacity: 0;
-    transition: 0.5s;
 }
 
 .color-field:hover > .button-delete {
@@ -55,26 +54,26 @@
     transition: 0.5;
 }
 
-.button-delete-text {
-    justify-self: center;
-    align-self: center;
-    font-size: 30px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.button-delete-text:hover {
-    color:rgb(255, 255, 255) !important;
+.icon-text-light:hover {
+    color:#ffffffd0 !important;
     opacity: 1;
 }
 
-.button-copy-text {
+.icon-text-dark:hover {
+    color:#000000cb !important;
+    opacity: 1;
+}
+
+.icon-text {
     justify-self: center;
     align-self: center;
     font-size: 30px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.button-copy-text:hover {
-    color:rgb(255, 255, 255) !important;
-    opacity: 1;
+.light {
+    color: #ffffff80;
+}
+
+.dark {
+    color: #00000080;
 }
