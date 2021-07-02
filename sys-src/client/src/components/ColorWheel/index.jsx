@@ -7,31 +7,32 @@ import "./index.css";
 
  class ColorWheel extends React.Component {
 
-  constructor(props){
-    super(props);
-  }
-
   colorPicker;
-  color;
 
   componentDidMount() {
     this.colorPicker = new iro.ColorPicker(this.el, {
       // Set the size of the color picker
       width: 350,
-      // Set the initial color to pure red
-      color: this.props.colors[this.props.activeColor],
+      borderWidth: 3,
+      // Die Farbe, mit der das Wheel initialisiert wird
+      color: this.props.colors[this.props.activeColor]
     });
+
+    // Wheel mit den Slidern verknüpft
     this.colorPicker.on("color:change", ()=>this.props.updateHexValue(this.colorPicker.color.hexString));
-    this.colorPicker.on("color:setActive", function(color){
-      color = this.props.color[this.props.activeColor];
-    });
   };
 
   componentDidUpdate(prevProps) {
-    
-    if(prevProps.colors[this.props.activeColor] !== this.props.colors[this.props.activeColor]){
+    //
+    if(this.props.activeColor >= this.props.colors.length)
+    {
+      this.colorPicker.color.hexString = this.props.colors[0]
+    }
+    else {
+      if(prevProps.colors[this.props.activeColor] !== this.props.colors[this.props.activeColor]){
       
-      this.colorPicker.color.hexString = this.props.colors[this.props.activeColor];
+        this.colorPicker.color.hexString = this.props.colors[this.props.activeColor];
+      }
     }
   }
 
