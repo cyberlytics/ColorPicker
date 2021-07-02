@@ -9,15 +9,16 @@ import React, { useState, useEffect } from 'react';
 import Palette from "../../components/Palette/index"
 import Pagination from '@material-ui/lab/Pagination';
 import "./schemes.css"
-
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import PopUpPalette from '../../components/PopUpPalette/index.jsx';
 
 const url = 'http://localhost:5000/palette/all';
 
 function ShowSchemes() {
 
-    const dataLimit = 4;
+    //Bestimmt wie viele Paletten pro Seite angezeigt werden
+    const dataLimit = 12;
 
     const [palettes, setPalettes] = useState([]);
     const [error, setError] = useState('');
@@ -25,6 +26,8 @@ function ShowSchemes() {
     const [pageCount, setPageCount] = useState(0);
     const [sorting, setSorting] = useState("desc");
     const [typeSort, setTypeSort] = useState("date");
+
+    const [btnPopup, setBtnPopup] = useState(false);
 
     useEffect(() => {
         fetch(url + `/?type=${typeSort}&sort=${sorting}`)
@@ -43,14 +46,14 @@ function ShowSchemes() {
         setCurrentPage(value);
     };
 
+    //Berechnet den Start- und Endindex und nimmt sich den passenden Teil aus den Paletten
     const getPaginatedData = () => {
         const startIndex = currentPage * dataLimit - dataLimit;
         const endIndex = startIndex + dataLimit;
         return palettes.slice(startIndex, endIndex);
     };
 
-    let sortContainer = [];
-
+    //Schaltet zwischen den einzelnen Sortierungsmöglichkeiten um
     const handleSorting = (event) => {
         if(event.target.className === "sortRating"){
             if(typeSort === 'date'){
@@ -69,6 +72,8 @@ function ShowSchemes() {
         }
     };
 
+    //Je nach Sortierung wird die Darstellung entsprechend gerendert
+    let sortContainer = [];
     if(typeSort === "rating"){
         sortContainer.push(<div key="sort1" className="sortDate" onClick={handleSorting}>Datum <ArrowDropUpIcon style={{color:"white"}}/></div>)
         sortContainer.push((sorting === "asc") ? <div key="sort2" className="sortRating" onClick={handleSorting}>Rating <ArrowDropUpIcon/></div> : <div key="sort2" className="sortRating" onClick={handleSorting}>Rating <ArrowDropDownIcon/></div>)
@@ -79,15 +84,22 @@ function ShowSchemes() {
 
     return (
         <>
-            <div className="sortingContainer">
-                {sortContainer}
+            {error}
+            <div className="sortingContainer font-montserrat">
+                {sortContainer}                
             </div>
             <div className="paletteContainer">
-                {getPaginatedData().map(d => (<Palette key={d._id} colors={d.color} avgRating={d.avg_rating}/>))}
+                {getPaginatedData().map(d => (<Palette key={d._id} colors={d.color} avgRating={d.avg_rating} paletteId={d._id} />))}                
             </div>
             <div className="paginationContainer">
-                <Pagination count={pageCount} page={currentPage} onChange={handleChange} />
+                <Pagination count={pageCount} page={currentPage} onChange={handleChange} />                
             </div>
+
+
+            <button onClick={()=> setBtnPopup(true) }>popup</button>
+            <PopUpPalette trigger={btnPopup} setTrigger={setBtnPopup} paletteID={"werwe"}>
+                
+            </PopUpPalette>
         </>
     );
 }

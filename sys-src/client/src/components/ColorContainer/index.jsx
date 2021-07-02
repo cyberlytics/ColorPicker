@@ -13,28 +13,24 @@ import "../ColorContainer/index.css";
 import AddColorButton from "../AddColorButton";
 
 class ColorContainer extends Component {
-  state = {
-    counter: 2,
-  };
-
-  handleAdd = () => {
-    if (this.state.counter < 5 ) {
-      this.setState({ counter: this.state.counter + 1 });
-    }
-    console.log(this.state.counter);
-  };
-
   render() {
     const children = [];
-    for (var i = 0; i < this.state.counter; i += 1) {
-      children.push(<ColorField key={i}></ColorField>);
+    for (var i = 0; i < this.props.colors.length; i += 1) {
+      children.push(
+        <ColorField
+          key={i}
+          changeActiveColor={this.props.changeActiveColor}
+          colors={this.props.colors}
+          number={i}
+          deleteColor={this.props.deleteColor}
+          activeColor={this.props.activeColor}
+        ></ColorField>
+      );
     }
     return (
       <div className="color-container">
-        <div className="container-color-buttons">{children}</div>
-        <AddColorButton
-          handleAddChild={this.handleAdd}
-        ></AddColorButton>
+        <div className="container-color-tiles">{children}</div>
+        <AddColorButton handleAddChild={this.props.handleAdd}></AddColorButton>
       </div>
     );
   }

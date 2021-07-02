@@ -11,23 +11,22 @@ class Slider extends Component {
     this.value = React.createRef();
   }
 
-// TODO: CSS
-
   render() {
     return (
       <div>
         <fieldset>
           <label for={"slider-"+this.props.type}>{this.props.sliderText}</label>
           <input
+          // key={this.props.value}
             type="range"
             min="0"
             max="255"
             class={this.props.type}
             step="1"
             ref={this.value}
-            defaultValue={this.props.value}
+            value={this.props.value}
             onChange={() =>
-              this.props.handleChange(this.props.type, this.value.current.value)
+              this.props.handleChange(this.props.type, parseInt(this.value.current.value))
             }
           />
           <output for={"slider-"+this.props.type}>

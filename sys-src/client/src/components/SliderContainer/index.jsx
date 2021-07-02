@@ -4,57 +4,57 @@
  * Enthält:
  *  -Slider
  */
-import "./index.css";
 import React, { Component } from "react";
 import Slider from "../Slider";
-
-// TODO: CSS
-
 class SliderContainer extends Component {
-  state = { red_value: 255, green_value: 100, blue_value: 0, brightness: 200 };
+
+  
+  constructor(props) {
+
+    super(props);
+
+  }
+
+  // Source: https://codepen.io/urosurosevic/pen/pagxYE  
 
   handleChange = (type, value) => {
 
+    let newHexValue = '';
+
     if (type === "red") {
-      this.setState({ red_value: value });
+
+      newHexValue = this.props.rgbToHex(value, this.props.rgbColor[1], this.props.rgbColor[2]);
     }
     if (type === "green") {
-      this.setState({ green_value: value });
+      newHexValue = this.props.rgbToHex(this.props.rgbColor[0] , value, this.props.rgbColor[2]);
     }
     if (type === "blue") {
-      this.setState({ blue_value: value });
+      newHexValue = this.props.rgbToHex(this.props.rgbColor[0] , this.props.rgbColor[1], value);
     }
-    if (type === "brightness") {
-      this.setState({ brightness: value });
-    }
+    console.log(newHexValue);
+    this.props.updateHexValue(newHexValue);
   };
 
   render() {
     return (
-      <div class="slider-container">
+      <div class="container-slider font-IBM">
         <Slider
-          value={this.state.red_value}
+          value={this.props.rgbColor[0]}
           handleChange={this.handleChange}
           type={"red"}
           sliderText={"R"}
         ></Slider>
         <Slider
-          value={this.state.green_value}
+          value={this.props.rgbColor[1]}
           handleChange={this.handleChange}
           type={"green"}
           sliderText={"G"}
         ></Slider>
         <Slider
-          value={this.state.blue_value}
+          value={this.props.rgbColor[2]}
           handleChange={this.handleChange}
           type={"blue"}
           sliderText={"B"}
-        ></Slider>
-        <Slider
-          value={this.state.brightness}
-          handleChange={this.handleChange}
-          type={"brightness"}
-          sliderText={"H"}
         ></Slider>
       </div>
     );

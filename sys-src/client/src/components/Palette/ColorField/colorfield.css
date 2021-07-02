@@ -7,3 +7,28 @@
 .item{
     flex-grow: 1;
 }
+
+.item:hover {
+    opacity: 0.6;
+}
+
+.overview-tile-single-color {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.473);
+    opacity: 0;
+    display: grid;
+    position: relative;
+}
+
+.item:hover > .overview-tile-single-color {
+    opacity: 0.8;
+}
+
+.show {
+    opacity: 1 !important;
+}
+
+.palette-text {
+    font-size: 2em !important;
+}

@@ -1,5 +1,5 @@
 /**
- * Ermöglicht das Ausführen von Funktionen wenn es angeklickt wird.
+ * enables an action, which is given by the parent component, if user clicks the component
  */
 
 import React from "react";
@@ -7,25 +7,15 @@ import { Title } from "../Title";
 import "./index.css";
 
 export function Button(props) {
-    //get values for title and colors from props
-  const { title, colors, name } = props;
-
-  //function for submitting colors to backend; not created yet
-  const submitPalette = (saveColor, saveName) => {
-    fetch('http://localhost:5000/palette/add', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      body: JSON.stringify({name: saveName, color: saveColor})
-    }).then(console.log('Die zu speichernden Farben sind: ' + saveColor + '. Der zu speichernde Name ist: ' + saveName + '.'));
-  };
+  
+    //get values for title and onClick from props
+  const { title, onClick } = props;
 
   return (
     <button
-      className="buttonStyle"
+      className="buttonStyle shadow"
       type="button"
-      onClick={() => submitPalette(colors, name)}
+      onClick={onClick}
     >
       <Title>{title}</Title>
     </button>

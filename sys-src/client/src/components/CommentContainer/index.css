@@ -1,0 +1,13 @@
+#addCommentBox{
+    border: 4px solid green;
+    margin: 4px;
+    padding: 4px;
+}
+
+#commentBox{
+    border: 4px solid yellow;
+}
+
+#test{
+    background: hotpink;
+}

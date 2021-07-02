@@ -42,6 +42,6 @@ exports.rating_add = function(req, res){
                };
                //Calls the updateOne function of mongoose with the values from query and update
                paletteModell.updateOne(query, update).exec();
-        }}).catch(err => console.error(`Failed to find Document: ${err}`));
+        }}).catch(error => console.error(`Failed to find Document: ${error}`));
     });
 };

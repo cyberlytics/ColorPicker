@@ -9,23 +9,19 @@ output{
 
 label, output{
     padding: 2px 9px;
-    border-radius: 3px;
-    font-family: 'Roboto', sans-serif;
-    color: #000;
-    font-size: 1.1em;
+    border-radius: 30px;
+    color: rgb(255, 255, 255);
+    font-size: 1.7em;
+    font-weight: 500;
 }
 
 label[for=slider-red], output[for=slider-red]{
-  background-color: #f00;
+  background-color: rgb(240, 49, 49);
 }
 
 label[for=slider-green], output[for=slider-green]{
-  background-color: #0f0;
+  background-color: rgb(6, 202, 72);
 }
 label[for=slider-blue], output[for=slider-blue]{
-  background-color: #00f;
-}
-
-label[for=slider-brightness], output[for=slider-brightness]{
-  border: 1px solid black;
+  background-color: rgb(21, 93, 247);
 }
