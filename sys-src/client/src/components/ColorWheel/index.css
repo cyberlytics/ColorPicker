@@ -3,3 +3,13 @@
     visibility: hidden;
     pointer-events: none;
   }
+
+  /*if colorwheel shouldnt change to black, decomment following code*/
+  /* .IroWheelHue {
+  opacity: 1 !important;
+}
+
+.IroWheelLightness {
+  opacity: 0 !important;
+}  */
+
