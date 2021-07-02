@@ -109,6 +109,7 @@ export default function CreatePalette(params) {
     setColors(colorss);
   };
 
+
   return (
     <div className="container-create-palette">
       {/**Save Palette Dialog */}
@@ -163,7 +164,7 @@ export default function CreatePalette(params) {
       </div>
       <div className="container-small">
         <div className="container-preview">
-          <Preview colors={colors} />
+          <div><Preview colors={colors} /></div>
         </div>
         <div className="container-save-button">
           <div className="button-left-align">
