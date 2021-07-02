@@ -9,18 +9,20 @@ import React, { Component } from 'react';
 import { useState } from 'react';
 import Comment from '../Comment';
 
-class AddComment extends Component {
-    constructor(props) {
+class AddComment extends Component 
+{
+    constructor(props) 
+    {
         super(props);
         this.state = { comments: [], text: '' };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    com_text = "";
-    com_text_add = "first!!!";
+    com_text = "qwe";
+    com_text_add = "vom Add!!!";
     com_arr = ['123','asd'];
-    palette_ID ='asdfasasf'
+    palette_ID = this.props.paletteID;
 
     submitComment = (com_text, palette_ID) => 
     {
@@ -31,9 +33,10 @@ class AddComment extends Component {
         {
           "Content-Type": "application/json; charset=utf-8",
         },
-        body: JSON.stringify({ comment: this.com_text, paletteID: this.palette_ID }),
+        body: JSON.stringify({ comment: com_text, paletteID: palette_ID }),
       }).then(() => {
-        //HIER KOMMT WAS DU NACH DEM HINZUFÜGEN MACHEN WILLST (WENN ES WAS ZU TUN GIBT)
+        console.log(palette_ID, com_text);
+        
       });
     };
   
@@ -51,7 +54,7 @@ class AddComment extends Component {
                 
             />
             <p></p>
-            <button onClick={() => this.props.addCommentChild(this.com_text)}>
+            <button onClick={() => this.submitComment(this.com_text, this.palette_ID)  }>
                 Hinzufügen 
             </button>
 

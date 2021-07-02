@@ -14,28 +14,23 @@
 
  class CommentContainer extends Component 
 {
-
-  commentText = "";
-
-  addComment=(text) =>
+  constructor(props)
   {
-    this.commentText=text; 
-    console.log("add "+text);
+    super(props);
   }
 
-
-
+  commentText = "vom Container";
 
     render() 
     {
         return (
           <div>
               <div id="addCommentBox">
-                  <h3 id="test">test</h3>
-                <AddComment addCommentChild={this.addComment}/>
+                  <h3 id="test">Pal_ID: {this.props.paletteID}</h3>
+                <AddComment paletteID={this.props.paletteID}/>
               </div>
               <div id="commentBox">
-                <Comment text = {this.commentText}/>
+                <Comment paletteID={this.props.paletteID}/>
               </div>
           </div>
         );
