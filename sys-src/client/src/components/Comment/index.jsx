@@ -4,35 +4,55 @@
  * und die zweite den abgegebenen Kommentar.
  */
 
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const url = 'http://localhost:5000/comment/all/';
 
 
-
 function Comment (props) 
 {
-   const url_all = url + props.paletteID;
-   const test = fetch(url_all)
+  const [data, setData] = useState([])
+  const url_all = url + props.paletteID;
+
+   const getComment = () =>
+    {
+          fetch(url_all)   
                   .then((response) => 
                   {
                     if (response.ok) return response.json();
                     throw console.log("something went wrong while requesting posts");
+                    
                   })
-   
-   console.log(test);
+                  .then((comments) => 
+                  {
+                    if(comments.length!=0)
+                      {  
+                        setData(comments);
+                      }
+                  })
+      };
 
-
+      useEffect(() => {
+        getComment();
+      }, []);
 
       return (
-        <div>
-         
+        <div>         
             <h3>Kommentare</h3>
-              {}
-              <br/>test
-                    {
-                    }
-          
+
+            {//<button onClick={getComment} >gib koment</button>
+            } 
+              <div id="scrollDiv">              
+                  
+                 {(data.length===0)?
+                   (
+                     <h3>Es gibt noch keine Kommentare</h3>
+                   ):
+                   (                     
+                    data.map((item, index) => (<div><h4>Kommentar #{index+1}</h4> <li>{item.comment}</li> </div>))
+                   )
+                  }    
+              </div>              
         </div>
       );
 }

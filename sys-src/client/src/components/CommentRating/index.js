@@ -1,11 +1,16 @@
+import React, { useState } from 'react';
 import "./commentRating.css";
 import CommentsIcon from "@material-ui/icons/Message";
 import Rating from "@material-ui/lab/Rating";
+import PopUpPalette from '../../components/PopUpPalette/index.jsx';
 
 import { withStyles } from "@material-ui/core/styles";
 
 function CommentRating(props) {
   
+
+  
+
   //a styled rating, to fill the stars with a golden color
   const StyledRating = withStyles({
     iconFilled: {
@@ -28,7 +33,7 @@ function CommentRating(props) {
 
   return (
     <div className="commentRating">
-      <CommentsIcon style={{ color: "#808080" }} />
+      
 
       {/**shows the average rating of the palette and enables user to add a new rating*/}
       <StyledRating

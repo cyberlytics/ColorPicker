@@ -20,8 +20,6 @@ class AddComment extends Component
     }
 
     com_text = "qwe";
-    com_text_add = "vom Add!!!";
-    com_arr = ['123','asd'];
     palette_ID = this.props.paletteID;
 
     submitComment = (com_text, palette_ID) => 
@@ -44,11 +42,11 @@ class AddComment extends Component
     render() {
         return (
           <div>
-            <h5>Geben Sie Ihr Kommentar ab</h5>            
+            <h3>Geben Sie Ihr Kommentar ab</h3>            
             <form onSubmit={this.handleSubmit}>
             
             <textarea
-                id="new-comment"                
+                id="newComment"                
                 onChange={this.handleChange}
                 value={this.state.text}
                 
