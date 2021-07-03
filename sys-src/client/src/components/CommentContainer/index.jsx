@@ -26,7 +26,6 @@
         return (
           <div>
               <div id="addCommentBox">
-                  <h3 id="test">Pal_ID: {this.props.paletteID}</h3>
                 <AddComment paletteID={this.props.paletteID}/>
               </div>
               <div id="commentBox">

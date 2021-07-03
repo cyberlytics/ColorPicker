@@ -14,7 +14,7 @@
 
  function PopUpPalette (props)  {
         return (props.trigger) ? (
-            <div className="popup">             
+            <div className="popup">           
                 <div className="popupInner">
                     <div id="header">
                         <div id="paletteBox">

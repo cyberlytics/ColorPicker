@@ -11,7 +11,6 @@ import Pagination from '@material-ui/lab/Pagination';
 import "./schemes.css"
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import PopUpPalette from '../../components/PopUpPalette/index.jsx';
 
 const url = 'http://localhost:5000/palette/all';
 
@@ -26,8 +25,7 @@ function ShowSchemes() {
     const [pageCount, setPageCount] = useState(0);
     const [sorting, setSorting] = useState("desc");
     const [typeSort, setTypeSort] = useState("date");
-
-    const [btnPopup, setBtnPopup] = useState(false);
+    
 
     useEffect(() => {
         fetch(url + `/?type=${typeSort}&sort=${sorting}`)
@@ -94,12 +92,6 @@ function ShowSchemes() {
             <div className="paginationContainer">
                 <Pagination count={pageCount} page={currentPage} onChange={handleChange} />                
             </div>
-
-
-            <button onClick={()=> setBtnPopup(true) }>popup</button>
-            <PopUpPalette trigger={btnPopup} setTrigger={setBtnPopup} paletteID={"werwe"}>
-                
-            </PopUpPalette>
         </>
     );
 }

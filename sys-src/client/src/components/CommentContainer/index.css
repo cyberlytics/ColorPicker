@@ -6,6 +6,9 @@
 
 #commentBox{
     border: 4px solid yellow;
+    height: 300px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 #test{
