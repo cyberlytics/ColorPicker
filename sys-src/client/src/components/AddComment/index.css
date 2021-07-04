@@ -1,7 +1,13 @@
 #btnAdd {
-    position:absolute;
-    bottom: 20px;
-    right: 20px;
+    background-color: rgb(175, 180, 255);
+    width: 20%;
+    height: 45px;
+    border: 2px solid #ffffff;
+    box-sizing: border-box;
+    border-radius: 2px;
+    border-radius: 30px;
+    display: grid;
+    justify-content: center;
     
 }
 

@@ -8,6 +8,7 @@
 import React, { Component } from 'react';
 import { useState } from 'react';
 import Comment from '../Comment';
+import { Button } from '../Button'
 
 class AddComment extends Component 
 {
@@ -55,10 +56,8 @@ class AddComment extends Component
                 value={this.state.text}
                 
             />
-            </div>
-            <button id="btnAdd" onClick={() => this.submitComment(this.com_text, this.palette_ID)  }>
-                Hinzufügen 
-            </button>
+            </div>            
+            <Button title={"Hinzufügen"} onClick={() => this.submitComment(this.com_text, this.palette_ID)  }></Button>
 
 
            </form>

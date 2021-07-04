@@ -11,29 +11,37 @@
  import CommentContainer from '../CommentContainer'
  import ColorField from './ColorFild'
  import CommentRating from '../CommentRating/index'
+ import { Button } from '../Button'
 
  function PopUpPalette (props)  {
         return (props.trigger) ? (
             <div className="popup">           
                 <div className="popupInner">
-                    <div id="header">
-                        <div id="paletteBox">
-                            
+                    <div className="header">
+                        <div className="paletteBox">                            
                             <ColorField colors={props.colors} />                            
                         </div>
-                        <div className="infoContainer">
-                            <h3>Bewerbe die Palette</h3>
-                            <CommentRating rating={props.avgRating} paletteID={props.paletteId}/>
+
+                        <div className="bewertungContainer">
+                            <div className="containerHeader">
+                                <h3 >Bewerte die Palette</h3>
+                            </div>
+                            <div className="containerRating">
+                                <CommentRating rating={props.avgRating} paletteID={props.paletteId}/>
+                            </div>
                         </div>
+
                     </div>
                     <div id="containerBox">
                         <CommentContainer paletteID={props.paletteID}/>                        
                     </div>
 
                     
-                    <button className="btnPopup" id="btnClose" onClick={() => props.setTrigger(false)}>
+                    <Button className="btnPopup" id="btnClose" title={"Schließen"} onClick={() => props.setTrigger(false)} />
+                    {/*<button className="btnPopup" id="btnClose" onClick={() => props.setTrigger(false)}>
+ 
                       Schließen
-                    </button>                  
+        </button>    */     }         
                 </div>          
                 
             </div>
