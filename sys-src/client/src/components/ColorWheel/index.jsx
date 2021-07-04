@@ -1,5 +1,5 @@
 /**
- * Enthält das Farbrad.
+ * Contains the Color Wheel
  */
 import React from "react";
 import iro from "@jaames/iro";
@@ -11,26 +11,27 @@ import "./index.css";
 
   componentDidMount() {
     this.colorPicker = new iro.ColorPicker(this.el, {
-      // Set the size of the color picker
-      width: 350,
+      // Color Wheel Options: Set the Size and the border width.
+      width: 375,
       borderWidth: 3,
-      // Die Farbe, mit der das Wheel initialisiert wird
+      // Initial color. Changing randomly after refreshing the page.
       color: this.props.colors[this.props.activeColor]
     });
 
-    // Wheel mit den Slidern verknüpft
+    // Runs the function updateHexValue whenever the color picker is changed.
     this.colorPicker.on("color:change", ()=>this.props.updateHexValue(this.colorPicker.color.hexString));
   };
 
   componentDidUpdate(prevProps) {
-    //
+    // Check if Index of active color is outside the color-field array.
     if(this.props.activeColor >= this.props.colors.length)
     {
       this.colorPicker.color.hexString = this.props.colors[0]
     }
     else {
-      if(prevProps.colors[this.props.activeColor] !== this.props.colors[this.props.activeColor]){
-      
+      if(prevProps.colors[this.props.activeColor] !== this.props.colors[this.props.activeColor])
+      {
+        // Changes the previous color to the new color picker color. Moving the Slider also changes the Color Picker.
         this.colorPicker.color.hexString = this.props.colors[this.props.activeColor];
       }
     }
