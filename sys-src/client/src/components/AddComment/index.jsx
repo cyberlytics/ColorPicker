@@ -44,15 +44,19 @@ class AddComment extends Component
           <div>
             <h3>Geben Sie Ihr Kommentar ab</h3>            
             <form onSubmit={this.handleSubmit}>
-            
+            <div id="newCommentDiv" >
             <textarea
-                id="newComment"                
+                id="newComment"
+                rows = "5"
+                cols = "70"
+                placeholder = "Schreiben Sie ihr Kommentar hier..."
+                 
                 onChange={this.handleChange}
                 value={this.state.text}
                 
             />
-            <p></p>
-            <button onClick={() => this.submitComment(this.com_text, this.palette_ID)  }>
+            </div>
+            <button id="btnAdd" onClick={() => this.submitComment(this.com_text, this.palette_ID)  }>
                 Hinzufügen 
             </button>
 

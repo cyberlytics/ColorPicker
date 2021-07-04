@@ -1,5 +1,9 @@
-#newComment {
-    width: auto;
-    height: 100px;
+#btnAdd {
+    position:absolute;
+    bottom: 20px;
+    right: 20px;
+    
 }
+
+
 
