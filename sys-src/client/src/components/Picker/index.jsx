@@ -12,12 +12,6 @@ import SliderContainer from "../SliderContainer";
 
 class Picker extends Component {
 
-  
-
-  constructor(props) {
-    super(props);
-  }
-
   hexToRGB = (hex) => {
     hex = "0x" + hex;
     let r = (hex >> 16) & 0xff;
