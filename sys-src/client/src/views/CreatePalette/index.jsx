@@ -32,16 +32,18 @@ export default function CreatePalette(params) {
   //state handles if name is entered or not
   const [noName, setNoName] = useState();
 
-  //
+  //state handles if user want to add more than 5 Colors.
   const [tooMuchColors, setTooMuchColors] = useState(false);
 
-  //
+  //state handles if user want to delete too many colors < 2.
   const [tooLessColors, setTooLessColors] = useState(false);
 
+  //handles the opening and closing of the too-much-colors-dialog.
   const handleTooMuchColors = () => {
     setTooMuchColors(!tooMuchColors);
   }
 
+  //handles the opening and closing of the too-less-colors-dialog.
   const handleTooLessColors = () => {
     setTooLessColors(!tooLessColors);
   }
@@ -168,7 +170,7 @@ export default function CreatePalette(params) {
         </DialogContent>
       </Dialog>
 
-      {/**Too much Colors Dialog */}
+      {/**Too much colors Dialog */}
       <Dialog open={tooMuchColors} onClose={handleTooMuchColors}>
         <DialogTitle>Sie haben bereits 5 Farben.</DialogTitle>
         <DialogContent>
