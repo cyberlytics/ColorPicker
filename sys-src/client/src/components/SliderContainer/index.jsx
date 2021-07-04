@@ -8,15 +8,7 @@ import React, { Component } from "react";
 import Slider from "../Slider";
 class SliderContainer extends Component {
 
-  
-  constructor(props) {
-
-    super(props);
-
-  }
-
-  // Source: https://codepen.io/urosurosevic/pen/pagxYE  
-
+  // Changes Rgb to Hex Values
   handleChange = (type, value) => {
 
     let newHexValue = '';
