@@ -74,12 +74,14 @@ export default function CreatePalette(params) {
     }
   };
 
+  // updates active color value in state
   const updateHexValue = (hexValue) => {
     let colorss = [...colors];
     colorss[activeColor] = hexValue;
     setColors(colorss);
   };
 
+  // adds color to colorarray in state
   const handleAdd = () => {
     if (colors.length < 5) {
       let colorss = [...colors];
@@ -88,6 +90,9 @@ export default function CreatePalette(params) {
     }
     else handleTooMuchColors();
   };
+
+
+  // creates a random hexstring
 
   const getRandomColor = () => {
     var letters = "0123456789abcdef";
@@ -98,20 +103,24 @@ export default function CreatePalette(params) {
     return color;
   };
 
+  // changes active color in state
   const changeActiveColor = (number) => {
     setActiveColor(number);
   };
 
   const deleteColor = (number) => {
+    // changes active color to 0 -> avoids error that active color is not defined
     changeActiveColor(0);
-
+    // always at least 2 colors have to exist
     if (colors.length > 2) {
+      // save state.colors in new array, change new array, change state.colors to new array
       let colorss = [...colors];
       colorss.splice(number, 1);
       setColors([...colorss]);
     } else handleTooLessColors();
   };
 
+  // creates a new palette with a random amount (2-5) of colors
   const createRandomPalette = () => {
     let colorss = [];
     for (var i = 0; i < Math.floor(Math.random() * (5 - 2 + 1)) + 2; i++) {
