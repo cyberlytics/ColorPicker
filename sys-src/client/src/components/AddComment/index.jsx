@@ -6,8 +6,6 @@
 
 
 import React, { Component } from 'react';
-import { useState } from 'react';
-import Comment from '../Comment';
 import { Button } from '../Button'
 
 class AddComment extends Component 
@@ -17,14 +15,15 @@ class AddComment extends Component
         super(props);
         this.state = { comments: [], text: '' };
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    com_text = "qwe";
+    com_text = "";
     palette_ID = this.props.paletteID;
 
     submitComment = (com_text, palette_ID) => 
     {
+      //wenn der Kommentarfenster leer ist, wird nichts gespeichert
+      if (com_text.length !== 0) {
       fetch("http://localhost:5000/comment/add", 
       {
         method: "POST",
@@ -37,6 +36,9 @@ class AddComment extends Component
         console.log(palette_ID, com_text);
         
       });
+      //popupfenster wird geschlossen
+      this.props.btnPopup(false);
+    }
     };
   
 
@@ -50,49 +52,23 @@ class AddComment extends Component
                 id="newComment"
                 rows = "5"
                 cols = "70"
-                placeholder = "Schreiben Sie ihr Kommentar hier..."
-                 
+                placeholder = "Schreiben Sie ihr Kommentar hier..."                 
                 onChange={this.handleChange}
-                value={this.state.text}
-                
+                value={this.state.text}                
             />
             </div>            
             <Button title={"Hinzufügen"} onClick={() => this.submitComment(this.com_text, this.palette_ID)  }></Button>
-
-
-           </form>
-           
-          
-
+           </form> 
           </div>
         );
       }
     
+      //speichert den Kommentar aus dem Komentarfenster ab
       handleChange(e) 
       {
         this.setState({ text: e.target.value });
         this.com_text=e.target.value;
-        console.log("" + this.com_text);
-      }
-
-      handleSubmit(e) 
-      {
-        e.preventDefault();
-        if (this.state.text.length === 0) {
-          return;
-        }
-        const newItem = {
-          text: this.state.text,
-          id: Date.now()
-        };
-        
-        this.setState(state => ({
-          comments: state.comments.concat(newItem),
-          text: ''
-        }));
-      }
-
-
+      } 
 }
 
 

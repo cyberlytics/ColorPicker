@@ -26,17 +26,14 @@
         return (
           <div>
               <div id="addCommentBox">
-                <AddComment paletteID={this.props.paletteID}/>
+                <AddComment paletteID={this.props.paletteID} btnPopup={this.props.btnPopup}/>
               </div>
               <div id="commentBox">
                 <Comment paletteID={this.props.paletteID}/>
               </div>
           </div>
         );
-    }
-
-    
-
+    }  
 }
 
 export default CommentContainer;
