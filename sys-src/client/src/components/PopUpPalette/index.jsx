@@ -14,6 +14,7 @@
  import { Button } from '../Button'
 
  function PopUpPalette (props)  {
+     //popup wird bei betetigen eines Buttons geschlossen (setTrigger(false))
         return (props.trigger) ? (
             <div className="popup">           
                 <div className="popupInner">
@@ -27,21 +28,17 @@
                                 <h3 >Bewerte die Palette</h3>
                             </div>
                             <div className="containerRating">
-                                <CommentRating rating={props.avgRating} paletteID={props.paletteId}/>
+                                <CommentRating rating={props.avgRating} paletteID={props.paletteID}/>
                             </div>
                         </div>
 
                     </div>
                     <div id="containerBox">
-                        <CommentContainer paletteID={props.paletteID}/>                        
+                        <CommentContainer paletteID={props.paletteID} btnPopup={props.setTrigger}/>                        
                     </div>
-
                     
                     <Button className="btnPopup" id="btnClose" title={"Schließen"} onClick={() => props.setTrigger(false)} />
-                    {/*<button className="btnPopup" id="btnClose" onClick={() => props.setTrigger(false)}>
- 
-                      Schließen
-        </button>    */     }         
+                             
                 </div>          
                 
             </div>
