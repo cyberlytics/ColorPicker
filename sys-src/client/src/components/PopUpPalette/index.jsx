@@ -28,7 +28,7 @@
                                 <h3 >Bewerte die Palette</h3>
                             </div>
                             <div className="containerRating">
-                                <CommentRating rating={props.avgRating} paletteID={props.paletteId}/>
+                                <CommentRating rating={props.avgRating} paletteID={props.paletteID}/>
                             </div>
                         </div>
 
