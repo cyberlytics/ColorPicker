@@ -3,6 +3,7 @@
     color: rgba(255, 255, 255, 0.479);
     display: grid;
     position: relative;
+    cursor: pointer;
 }
 
 .active {
