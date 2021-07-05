@@ -14,35 +14,26 @@
 
  class CommentContainer extends Component 
 {
-
-  commentText = "";
-
-  addComment=(text) =>
+  constructor(props)
   {
-    this.commentText=text; 
-    console.log("add "+text);
+    super(props);
   }
 
-
-
+  commentText = "vom Container";
 
     render() 
     {
         return (
           <div>
               <div id="addCommentBox">
-                  <h3 id="test">test</h3>
-                <AddComment addCommentChild={this.addComment}/>
+                <AddComment paletteID={this.props.paletteID} btnPopup={this.props.btnPopup}/>
               </div>
               <div id="commentBox">
-                <Comment text = {this.commentText}/>
+                <Comment paletteID={this.props.paletteID}/>
               </div>
           </div>
         );
-    }
-
-    
-
+    }  
 }
 
 export default CommentContainer;

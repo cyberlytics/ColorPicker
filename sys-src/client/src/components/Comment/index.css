@@ -1,0 +1,11 @@
+#scrollBox {
+    overflow-y: scroll;
+}
+
+#scrollDiv {
+    border: 4px solid pink;
+    background: greenyellow;
+    height: 300px;
+    overflow: hidden;
+    overflow-y: scroll;
+}

@@ -6,27 +6,40 @@
  *  -CommentContainer
  */
 
- import React, { Component } from 'react'
+ import React from 'react'
  import './index.css'
  import CommentContainer from '../CommentContainer'
+ import ColorField from './ColorFild'
+ import CommentRating from '../CommentRating/index'
+ import { Button } from '../Button'
 
  function PopUpPalette (props)  {
+     //popup wird bei betetigen eines Buttons geschlossen (setTrigger(false))
         return (props.trigger) ? (
-            <div className="popup">             
+            <div className="popup">           
                 <div className="popupInner">
-                    <div id="paletteBox">
-                        <h3>Palette ID {props.paletteID}</h3>
+                    <div className="header">
+                        <div className="paletteBox">                            
+                            <ColorField colors={props.colors} />                            
+                        </div>
+
+                        <div className="bewertungContainer">
+                            <div className="containerHeader">
+                                <h3 >Bewerte die Palette</h3>
+                            </div>
+                            <div className="containerRating">
+                                <CommentRating rating={props.avgRating} paletteID={props.paletteID}/>
+                            </div>
+                        </div>
+
                     </div>
                     <div id="containerBox">
-                        <CommentContainer />                        
+                        <CommentContainer paletteID={props.paletteID} btnPopup={props.setTrigger}/>                        
                     </div>
-
-                    <button className="btnPopup" id="btnSave">Speichern</button>
-                    <button className="btnPopup" id="btnClose" onClick={() => props.setTrigger(false)}>
-                      Schließen
-                    </button>                  
-                </div>
-                
+                    
+                    <Button className="btnPopup" id="btnClose" title={"Schließen"} onClick={() => props.setTrigger(false)} />
+                             
+                </div>          
                 
             </div>
         ):"";
